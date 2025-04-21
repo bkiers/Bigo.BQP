@@ -484,9 +484,9 @@ columns
  ;
 
 // column
-//   column_name [OPTIONS(index_column_option_list)]
+//   column_name [data_type] [OPTIONS(index_column_option_list)]
 column
- : column_name=path_expression ( OPTIONS '(' option_parameters ')' )?
+ : column_name=path_expression data_type? ( OPTIONS '(' option_parameters ')' )?
  ;
 
 // CREATE [ OR REPLACE ] VECTOR INDEX [ IF NOT EXISTS ] index_name
@@ -538,7 +538,8 @@ alter_table_set_options
 // ALTER TABLE table_name
 // ADD COLUMN [IF NOT EXISTS] column [, ...]
 alter_table_add_column
- : expression // TODO
+ : ALTER TABLE table_name=path_expression
+   ADD COLUMN ( IF NOT EXISTS )? column ( ',' ADD COLUMN ( IF NOT EXISTS )? column )*
  ;
 
 // ALTER TABLE [[project_name.]dataset_name.]fk_table_name
