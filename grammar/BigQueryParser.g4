@@ -609,7 +609,8 @@ alter_table_drop_constraint
 // ALTER TABLE [[project_name.]dataset_name.]table_name
 // DROP PRIMARY KEY [IF EXISTS]
 alter_table_drop_primary_key
- : expression // TODO
+ : ALTER TABLE ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? fk_table_name=identifier
+   DROP PRIMARY KEY ( IF EXISTS )?
  ;
 
 // ALTER TABLE table_name
