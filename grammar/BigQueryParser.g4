@@ -591,7 +591,12 @@ column_to_column
 // ALTER TABLE table_name
 // DROP COLUMN [IF EXISTS] column_name [, ...]
 alter_table_drop_column
- : expression // TODO
+ : ALTER TABLE table_name=path_expression
+   drop_column ( ',' drop_column )*
+ ;
+
+drop_column
+ : DROP COLUMN ( IF EXISTS )? column_name=identifier
  ;
 
 // ALTER TABLE [[project_name.]dataset_name.]table_name

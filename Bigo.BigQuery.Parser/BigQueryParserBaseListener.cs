@@ -721,6 +721,18 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitAlter_table_drop_column([NotNull] BigQueryParser.Alter_table_drop_columnContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.drop_column"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDrop_column([NotNull] BigQueryParser.Drop_columnContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.drop_column"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDrop_column([NotNull] BigQueryParser.Drop_columnContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_table_drop_constraint"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

@@ -602,6 +602,16 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitAlter_table_drop_column([NotNull] BigQueryParser.Alter_table_drop_columnContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.drop_column"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDrop_column([NotNull] BigQueryParser.Drop_columnContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.drop_column"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDrop_column([NotNull] BigQueryParser.Drop_columnContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_table_drop_constraint"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

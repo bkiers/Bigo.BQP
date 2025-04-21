@@ -375,6 +375,12 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitAlter_table_drop_column([NotNull] BigQueryParser.Alter_table_drop_columnContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.drop_column"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDrop_column([NotNull] BigQueryParser.Drop_columnContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_table_drop_constraint"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
