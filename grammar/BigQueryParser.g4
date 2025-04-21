@@ -878,7 +878,7 @@ query_expression
 
 query_expr_tail
  : ( ORDER BY order_by=expression ( ASC | DESC )? ( ',' expression ( ASC | DESC )? )* )?
-   ( LIMIT count=expression ( OFFSET skip_rows=expression )? )?
+   ( LIMIT expression ( OFFSET skip_rows=expression )? )?
  ;
 
 set_operation_tail
@@ -1447,7 +1447,8 @@ identifier
  | COPY | SNAPSHOT | CLONE | VIEW | DROP | SEARCH | INDEX | VECTOR | ASSIGNMENT | RESERVATION | POLICIES | POLICY
  | ACCESS | PROCEDURE | FUNCTION | REPLICA | COLUMNS | RETURNS | DETERMINISTIC | LANGUAGE | REMOTE | AGGREGATE | TYPE
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
- | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY
+ | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
+ | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM
  ;
 
 // as_alias:
@@ -1458,13 +1459,42 @@ as_alias
 
 function_call
  : ARRAY '(' expression ')' // ARRAY(subquery)
- | AVG '(' DISTINCT? expression ')' ( OVER over_clause )? // AVG([ DISTINCT ] expression ) [ OVER over_clause ]
  | AVG '(' expression ( ',' identifier '=>' expression )? ')' // AVG( expression, [ contribution_bounds_per_group => (lower_bound, upper_bound) ] )
  | CAST '(' expression AS typename=identifier format_clause? ')' // CAST(expression AS typename [format_clause])
  | COLLATE '(' expression ',' expression ')' // COLLATE(value, collate_specification)
  | EXTRACT '(' identifier FROM expression ')' // EXTRACT(part FROM date_expression)
- | array_agg
+ | aggregate_function
  | identifier '(' expressions? ')'
+ ;
+
+aggregate_function
+ : any_value
+ | array_agg
+ | array_concat_agg
+ | avg
+ | bit_and
+ | bit_or
+ | bit_xor
+ | count
+ | countif
+ | grouping
+ | logical_and
+ | logical_or
+ | max
+ | max_by
+ | min
+ | min_by
+ | string_agg
+ | sum
+ ;
+
+// ANY_VALUE(
+//   expression
+//   [ HAVING { MAX | MIN } expression2 ]
+// )
+// [ OVER over_clause ]
+any_value
+ : ANY_VALUE '(' expression ( HAVING ( MAX | MIN ) expression)? ')' ( OVER over_clause )?
  ;
 
 // ARRAY_AGG(
@@ -1486,6 +1516,138 @@ array_agg
    ( OVER over_clause )?
  ;
 
+// ARRAY_CONCAT_AGG(
+//   expression
+//   [ ORDER BY key [ { ASC | DESC } ] [, ... ] ]
+//   [ LIMIT n ]
+// )
+array_concat_agg
+ : ARRAY_CONCAT_AGG '(' expression ( order_by_keys )? ( LIMIT expression )? ')'
+ ;
+
+// AVG(
+//   [ DISTINCT ]
+//   expression
+// )
+// [ OVER over_clause ]
+avg
+ : AVG '(' DISTINCT? expression ')' ( OVER over_clause )?
+ ;
+
+// BIT_AND(
+//   expression
+// )
+bit_and
+ : BIT_AND '(' expression ')'
+ ;
+
+// BIT_OR(
+//   expression
+// )
+bit_or
+ : BIT_OR '(' expression ')'
+ ;
+
+// BIT_XOR(
+//   [ DISTINCT ]
+//   expression
+// )
+bit_xor
+ : BIT_XOR '(' DISTINCT? expression ')'
+ ;
+
+// COUNT(
+//   [ DISTINCT ]
+//   expression
+// )
+// [ OVER over_clause ]
+count
+ : COUNT '(' DISTINCT? ( expression | '*' ) ')' ( OVER over_clause )?
+ ;
+
+// COUNTIF(
+//   [ DISTINCT ]
+//   expression
+// )
+// [ OVER over_clause ]
+countif
+ : COUNTIF '(' DISTINCT? expression ')' ( OVER over_clause )?
+ ;
+
+// GROUPING(groupable_value)
+grouping
+ : GROUPING '(' expression ')'
+ ;
+
+// LOGICAL_AND(
+//   expression
+// )
+logical_and
+ : LOGICAL_AND '(' expression ')'
+ ;
+
+// LOGICAL_OR(
+//   expression
+// )
+logical_or
+ : LOGICAL_OR '(' expression ')'
+ ;
+
+// MAX(
+//   expression
+// )
+// [ OVER over_clause ]
+//
+max
+ : MAX '(' expression ')' ( OVER over_clause )?
+ ;
+
+// MAX_BY(
+//   x, y
+// )
+max_by
+ : MAX_BY '(' expression ',' expression ')'
+ ;
+
+// MIN(
+//   expression
+// )
+// [ OVER over_clause ]
+min
+ : MIN '(' expression ')' ( OVER over_clause )?
+ ;
+
+// MIN_BY(
+//   x, y
+// )
+min_by
+ : MIN_BY '(' expression ',' expression ')'
+ ;
+
+// STRING_AGG(
+//   [ DISTINCT ]
+//   expression [, delimiter]
+//   [ ORDER BY key [ { ASC | DESC } ] [, ... ] ]
+//   [ LIMIT n ]
+// )
+// [ OVER over_clause ]
+string_agg
+ : STRING_AGG '(' DISTINCT?
+     expression ( ',' delimiter=string_literal )?
+     order_by_keys?
+     ( LIMIT expression )?
+   ')'
+ ;
+
+// SUM(
+//   [ DISTINCT ]
+//   expression
+// )
+// [ OVER over_clause ]
+sum
+ : SUM '(' DISTINCT? expression ')' ( OVER over_clause )?
+ ;
+
 // ORDER BY key [ { ASC | DESC } ] [, ... ]
 order_by_keys
  : order_by_key ( ',' order_by_key )*
@@ -1493,7 +1655,7 @@ order_by_keys
 
 // ORDER BY key [ { ASC | DESC } ]
 order_by_key
- : ORDER BY key=path_expression ( ASC | DESC )?
+ : ORDER BY key=expression ( ASC | DESC )?
  ;
 
 // function_name ( [ argument_list ] ) OVER over_clause

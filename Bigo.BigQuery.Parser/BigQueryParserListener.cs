@@ -1732,6 +1732,26 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitFunction_call([NotNull] BigQueryParser.Function_callContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.aggregate_function"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAggregate_function([NotNull] BigQueryParser.Aggregate_functionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.aggregate_function"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAggregate_function([NotNull] BigQueryParser.Aggregate_functionContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.any_value"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAny_value([NotNull] BigQueryParser.Any_valueContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.any_value"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAny_value([NotNull] BigQueryParser.Any_valueContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.array_agg"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -1741,6 +1761,166 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitArray_agg([NotNull] BigQueryParser.Array_aggContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.array_concat_agg"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterArray_concat_agg([NotNull] BigQueryParser.Array_concat_aggContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.array_concat_agg"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitArray_concat_agg([NotNull] BigQueryParser.Array_concat_aggContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.avg"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAvg([NotNull] BigQueryParser.AvgContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.avg"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAvg([NotNull] BigQueryParser.AvgContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.bit_and"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBit_and([NotNull] BigQueryParser.Bit_andContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.bit_and"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBit_and([NotNull] BigQueryParser.Bit_andContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.bit_or"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBit_or([NotNull] BigQueryParser.Bit_orContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.bit_or"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBit_or([NotNull] BigQueryParser.Bit_orContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.bit_xor"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBit_xor([NotNull] BigQueryParser.Bit_xorContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.bit_xor"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBit_xor([NotNull] BigQueryParser.Bit_xorContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.count"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCount([NotNull] BigQueryParser.CountContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.count"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCount([NotNull] BigQueryParser.CountContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.countif"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCountif([NotNull] BigQueryParser.CountifContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.countif"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCountif([NotNull] BigQueryParser.CountifContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.grouping"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterGrouping([NotNull] BigQueryParser.GroupingContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.grouping"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitGrouping([NotNull] BigQueryParser.GroupingContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.logical_and"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterLogical_and([NotNull] BigQueryParser.Logical_andContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.logical_and"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitLogical_and([NotNull] BigQueryParser.Logical_andContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.logical_or"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterLogical_or([NotNull] BigQueryParser.Logical_orContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.logical_or"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitLogical_or([NotNull] BigQueryParser.Logical_orContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.max"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMax([NotNull] BigQueryParser.MaxContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.max"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMax([NotNull] BigQueryParser.MaxContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.max_by"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMax_by([NotNull] BigQueryParser.Max_byContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.max_by"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMax_by([NotNull] BigQueryParser.Max_byContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.min"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMin([NotNull] BigQueryParser.MinContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.min"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMin([NotNull] BigQueryParser.MinContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.min_by"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMin_by([NotNull] BigQueryParser.Min_byContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.min_by"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMin_by([NotNull] BigQueryParser.Min_byContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.string_agg"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterString_agg([NotNull] BigQueryParser.String_aggContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.string_agg"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitString_agg([NotNull] BigQueryParser.String_aggContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.sum"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterSum([NotNull] BigQueryParser.SumContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.sum"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitSum([NotNull] BigQueryParser.SumContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.order_by_keys"/>.
 	/// </summary>
