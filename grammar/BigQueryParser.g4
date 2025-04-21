@@ -602,7 +602,8 @@ drop_column
 // ALTER TABLE [[project_name.]dataset_name.]table_name
 // DROP CONSTRAINT [IF EXISTS] constraint_name
 alter_table_drop_constraint
- : expression // TODO
+ : ALTER TABLE ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? fk_table_name=identifier
+   DROP CONSTRAINT ( IF EXISTS )? constraint_name=expression
  ;
 
 // ALTER TABLE [[project_name.]dataset_name.]table_name
