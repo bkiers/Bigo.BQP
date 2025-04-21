@@ -652,10 +652,13 @@ alter_table_column_set_default
    SET DEFAULT expression
  ;
 
-// ALTER TABLE [IF EXISTS] table_name ALTER COLUMN [IF EXISTS] column_name
+// ALTER TABLE [IF EXISTS] table_name
+// ALTER COLUMN [IF EXISTS] column_name
 // DROP DEFAULT
 alter_table_column_drop_default
- : expression // TODO
+ : ALTER TABLE ( IF EXISTS )? table_name=path_expression
+   ALTER COLUMN ( IF EXISTS )? column_name=identifier
+   DROP DEFAULT
  ;
 
 // ALTER VIEW [IF EXISTS] view_name
