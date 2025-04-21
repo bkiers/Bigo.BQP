@@ -558,12 +558,14 @@ add_foreign_keys
 add_foreign_key
  : ADD ( CONSTRAINT ( IF NOT EXISTS )? constraint_name=identifier )? FOREIGN KEY '(' columns ')'
    REFERENCES pk_table_name=identifier '(' columns ')' NOT ENFORCED
+ | ADD PRIMARY KEY '(' columns ')' NOT ENFORCED
  ;
 
 // ALTER TABLE [[project_name.]dataset_name.]table_name
 // ADD PRIMARY KEY(column_list) NOT ENFORCED
 alter_table_add_primary_key
- : expression // TODO
+ : ALTER TABLE ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? fk_table_name=identifier
+   ADD PRIMARY KEY '(' columns ')' NOT ENFORCED
  ;
 
 // ALTER TABLE [IF EXISTS] table_name
