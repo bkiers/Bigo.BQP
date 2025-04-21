@@ -616,7 +616,8 @@ alter_table_drop_primary_key
 // ALTER TABLE table_name
 // SET DEFAULT COLLATE collate_specification
 alter_table_set_default_collate
- : expression // TODO
+ : ALTER TABLE table_name=path_expression
+   SET DEFAULT COLLATE collate_specification=string_literal
  ;
 
 // ALTER { TABLE | VIEW } [IF EXISTS] name
