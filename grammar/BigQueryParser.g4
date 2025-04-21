@@ -531,7 +531,8 @@ alter_schema_drop_replica
 // ALTER TABLE [IF EXISTS] table_name
 // SET OPTIONS(table_set_options_list)
 alter_table_set_options
- : expression // TODO
+ : ALTER TABLE ( IF EXISTS )? table_name=path_expression
+   SET OPTIONS '(' option_parameters ')'
  ;
 
 // ALTER TABLE table_name
