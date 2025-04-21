@@ -6,7 +6,7 @@ namespace Bigo.BigQuery.Parser.Tests.Lexer;
 
 public abstract class BaseLexerTest
 {
-    protected static IList<IToken> Tokenize(string input, bool removeEof = true)
+    public static IList<IToken> Tokenize(string input, bool removeEof = true)
     {
         return Tokenize(input, [Antlr4.Runtime.Lexer.DefaultTokenChannel], removeEof);
     }

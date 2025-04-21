@@ -11,7 +11,7 @@ BXOR : '^';
 BOR : '|';
 STAR : '*';
 DIV : '/';
-ADD : '+';
+PLUS : '+';
 SUB : '-';
 DOT : '.';
 COMMA : ',';
@@ -214,6 +214,7 @@ FILTER : 'FILTER';
 COLUMN : 'COLUMN';
 STORING : 'STORING';
 ALTER : 'ALTER';
+ADD : 'ADD';
 
 NAN : 'NAN';
 INF : [+-]? 'INF';

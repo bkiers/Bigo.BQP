@@ -54,7 +54,10 @@ public abstract class BaseParserTest : BaseLexerTest
         }
         catch
         {
-            Assert.Fail($"Could not parse: {input}");
+            var token = BaseLexerTest.Tokenize(input);
+            var allTokens = token.Select(t => $"({BigQueryLexer.DefaultVocabulary.GetSymbolicName(t.Type)}: '{t.Text}')");
+
+            Assert.Fail($"Could not parse: {input}\nAll tokens:\n{string.Join("\n", allTokens)}");
         }
     }
 }

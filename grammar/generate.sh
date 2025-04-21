@@ -15,3 +15,4 @@ rm *.interp
 
 dotnet clean ../Bigo.BigQuery.Parser.sln
 dotnet build ../Bigo.BigQuery.Parser.sln
+dotnet test ../Bigo.BigQuery.Parser.sln

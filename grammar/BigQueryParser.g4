@@ -507,18 +507,18 @@ alter_schema_set_default_collate
    SET DEFAULT COLLATE collate_specification=string_literal
  ;
 
-// ALTER SCHEMA [IF EXISTS]
-// [project_name.]dataset_name
+// ALTER SCHEMA [IF EXISTS] [project_name.]dataset_name
 // SET OPTIONS(schema_set_options_list)
 alter_schema_set_options
- :  expression // TODO
+ : ALTER SCHEMA ( IF EXISTS )? ( project_name=identifier '.' )? dataset_name=identifier
+   SET OPTIONS '(' option_parameters ')'
  ;
 
-// ALTER SCHEMA [IF EXISTS]
-// [project_name.]dataset_name
+// ALTER SCHEMA [IF EXISTS] [project_name.]dataset_name
 // ADD REPLICA replica_name [OPTIONS(add_replica_options_list)]
 alter_schema_add_replica
- :  expression // TODO
+ : ALTER SCHEMA ( IF EXISTS )? ( project_name=identifier '.' )? dataset_name=identifier
+   ADD REPLICA replica_name=path_expression ( OPTIONS '(' option_parameters ')' )?
  ;
 
 // ALTER SCHEMA [IF EXISTS] dataset_name
@@ -1410,6 +1410,7 @@ identifier
  | COPY | SNAPSHOT | CLONE | VIEW | DROP | SEARCH | INDEX | VECTOR | ASSIGNMENT | RESERVATION | POLICIES | POLICY
  | ACCESS | PROCEDURE | FUNCTION | REPLICA | COLUMNS | RETURNS | DETERMINISTIC | LANGUAGE | REMOTE | AGGREGATE | TYPE
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
+ | ADD
  ;
 
 // as_alias:
