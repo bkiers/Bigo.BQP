@@ -632,7 +632,8 @@ alter_table_column_set_options
 // ALTER TABLE [IF EXISTS] table_name
 // ALTER COLUMN [IF EXISTS] column DROP NOT NULL
 alter_table_column_drop_not_null
- : expression // TODO
+ : ALTER TABLE ( IF EXISTS )? table_name=path_expression
+   ALTER COLUMN ( IF EXISTS )? column_name=identifier DROP NOT NULL
  ;
 
 // ALTER TABLE [IF EXISTS] table_name
