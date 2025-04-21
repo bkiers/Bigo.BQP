@@ -1,4 +1,3 @@
-
 using Xunit;
 
 namespace Bigo.BigQuery.Parser.Tests.Parser;

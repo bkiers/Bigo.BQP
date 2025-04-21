@@ -589,17 +589,17 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitAlter_schema_add_replica([NotNull] BigQueryParser.Alter_schema_add_replicaContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_schema_srop_replica"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_schema_drop_replica"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterAlter_schema_srop_replica([NotNull] BigQueryParser.Alter_schema_srop_replicaContext context) { }
+	public virtual void EnterAlter_schema_drop_replica([NotNull] BigQueryParser.Alter_schema_drop_replicaContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.alter_schema_srop_replica"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.alter_schema_drop_replica"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitAlter_schema_srop_replica([NotNull] BigQueryParser.Alter_schema_srop_replicaContext context) { }
+	public virtual void ExitAlter_schema_drop_replica([NotNull] BigQueryParser.Alter_schema_drop_replicaContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_table_set_options"/>.
 	/// <para>The default implementation does nothing.</para>

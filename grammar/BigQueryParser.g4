@@ -43,7 +43,7 @@ statement
  | alter_schema_set_default_collate
  | alter_schema_set_options
  | alter_schema_add_replica
- | alter_schema_srop_replica
+ | alter_schema_drop_replica
  | alter_table_set_options
  | alter_table_add_column
  | alter_table_add_constraint
@@ -523,20 +523,21 @@ alter_schema_add_replica
 
 // ALTER SCHEMA [IF EXISTS] dataset_name
 // DROP REPLICA replica_name
-alter_schema_srop_replica
- :  expression // TODO
+alter_schema_drop_replica
+ : ALTER SCHEMA ( IF EXISTS )? dataset_name=path_expression
+   DROP REPLICA replica_name=expression
  ;
 
 // ALTER TABLE [IF EXISTS] table_name
 // SET OPTIONS(table_set_options_list)
 alter_table_set_options
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE table_name
 // ADD COLUMN [IF NOT EXISTS] column [, ...]
 alter_table_add_column
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [[project_name.]dataset_name.]fk_table_name
@@ -544,19 +545,19 @@ alter_table_add_column
 // REFERENCES pk_table_name(pk_column_name[,...]) NOT ENFORCED
 // [ADD...]
 alter_table_add_constraint
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [[project_name.]dataset_name.]table_name
 // ADD PRIMARY KEY(column_list) NOT ENFORCED
 alter_table_add_primary_key
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [IF EXISTS] table_name
 // RENAME TO new_table_name
 alter_table_rename
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [IF EXISTS] table_name
@@ -565,62 +566,62 @@ alter_table_rename
 // column_to_column
 //   column_name TO new_column_name
 alter_table_rename_column
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE table_name
 // DROP COLUMN [IF EXISTS] column_name [, ...]
 alter_table_drop_column
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [[project_name.]dataset_name.]table_name
 // DROP CONSTRAINT [IF EXISTS] constraint_name
 alter_table_drop_constraint
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [[project_name.]dataset_name.]table_name
 // DROP PRIMARY KEY [IF EXISTS]
 alter_table_drop_primary_key
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE table_name
 // SET DEFAULT COLLATE collate_specification
 alter_table_set_default_collate
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER { TABLE | VIEW } [IF EXISTS] name
 // ALTER COLUMN [IF EXISTS] column_name
 // SET OPTIONS({ column_set_options_list | view_column_set_options_list })
 alter_table_column_set_options
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [IF EXISTS] table_name
 // ALTER COLUMN [IF EXISTS] column DROP NOT NULL
 alter_table_column_drop_not_null
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [IF EXISTS] table_name
 // ALTER COLUMN [IF EXISTS] column_name SET DATA TYPE column_schema
 alter_table_column_set_data_type
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [IF EXISTS] table_name ALTER COLUMN [IF EXISTS] column_name
 // SET DEFAULT default_expression
 alter_table_column_set_default
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER TABLE [IF EXISTS] table_name ALTER COLUMN [IF EXISTS] column_name
 // DROP DEFAULT
 alter_table_column_drop_default
- :  expression // TODO
+ : expression // TODO
  ;
 
 // ALTER VIEW [IF EXISTS] view_name

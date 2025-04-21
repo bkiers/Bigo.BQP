@@ -1,8 +1,7 @@
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 using BigO.BigQuery.Parser;
-using Bigo.BigQuery.Parser.Tests.Lexer;
-using Xunit;
+using Bigo.BigQuery.Parser.Tests.Lexer;using Xunit;
 
 namespace Bigo.BigQuery.Parser.Tests.Parser;
 

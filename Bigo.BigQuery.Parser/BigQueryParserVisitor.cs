@@ -309,11 +309,11 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitAlter_schema_add_replica([NotNull] BigQueryParser.Alter_schema_add_replicaContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_schema_srop_replica"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_schema_drop_replica"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitAlter_schema_srop_replica([NotNull] BigQueryParser.Alter_schema_srop_replicaContext context);
+	Result VisitAlter_schema_drop_replica([NotNull] BigQueryParser.Alter_schema_drop_replicaContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_table_set_options"/>.
 	/// </summary>
