@@ -46,7 +46,7 @@ statement
  | alter_schema_drop_replica
  | alter_table_set_options
  | alter_table_add_column
- | alter_table_add_constraint
+ | alter_table_add_foreign_key
  | alter_table_add_primary_key
  | alter_table_rename
  | alter_table_rename_column
@@ -546,8 +546,18 @@ alter_table_add_column
 // ADD [CONSTRAINT [IF NOT EXISTS] constraint_name] FOREIGN KEY (fk_column_name[, ...])
 // REFERENCES pk_table_name(pk_column_name[,...]) NOT ENFORCED
 // [ADD...]
-alter_table_add_constraint
- : expression // TODO
+alter_table_add_foreign_key
+ : ALTER TABLE ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? fk_table_name=identifier
+   add_foreign_keys
+ ;
+
+add_foreign_keys
+ : add_foreign_key ( ',' add_foreign_key )*
+ ;
+
+add_foreign_key
+ : ADD ( CONSTRAINT ( IF NOT EXISTS )? constraint_name=identifier )? FOREIGN KEY '(' columns ')'
+   REFERENCES pk_table_name=identifier '(' columns ')' NOT ENFORCED
  ;
 
 // ALTER TABLE [[project_name.]dataset_name.]table_name

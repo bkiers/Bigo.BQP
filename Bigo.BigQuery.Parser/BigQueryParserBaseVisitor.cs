@@ -526,7 +526,7 @@ public partial class BigQueryParserBaseVisitor<Result> : AbstractParseTreeVisito
 	/// <return>The visitor result.</return>
 	public virtual Result VisitAlter_table_add_column([NotNull] BigQueryParser.Alter_table_add_columnContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_table_add_constraint"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_table_add_foreign_key"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -534,7 +534,27 @@ public partial class BigQueryParserBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitAlter_table_add_constraint([NotNull] BigQueryParser.Alter_table_add_constraintContext context) { return VisitChildren(context); }
+	public virtual Result VisitAlter_table_add_foreign_key([NotNull] BigQueryParser.Alter_table_add_foreign_keyContext context) { return VisitChildren(context); }
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.add_foreign_keys"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitAdd_foreign_keys([NotNull] BigQueryParser.Add_foreign_keysContext context) { return VisitChildren(context); }
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.add_foreign_key"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitAdd_foreign_key([NotNull] BigQueryParser.Add_foreign_keyContext context) { return VisitChildren(context); }
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_table_add_primary_key"/>.
 	/// <para>
