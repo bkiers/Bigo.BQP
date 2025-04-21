@@ -693,7 +693,7 @@ alter_bi_capacity
 // ALTER CAPACITY `project_id.location_id.commitment_id`
 // SET OPTIONS (alter_capacity_commitment_option_list)
 alter_capacity
- : expression // TODO
+ : ALTER CAPACITY path_expression SET OPTIONS '(' option_parameters ')'
  ;
 
 // ALTER RESERVATION `project_id.location_id.reservation_id`
