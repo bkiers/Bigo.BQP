@@ -671,7 +671,8 @@ alter_view
 // ALTER MATERIALIZED VIEW [IF EXISTS] materialized_view_name
 // SET OPTIONS(materialized_view_set_options_list)
 alter_materialized_view
- : expression // TODO
+ : ALTER MATERIALIZED VIEW ( IF EXISTS )? materialized_view_name=path_expression
+   SET OPTIONS '(' option_parameters ')'
  ;
 
 // ALTER ORGANIZATION
