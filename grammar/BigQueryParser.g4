@@ -548,11 +548,7 @@ alter_table_add_column
 // [ADD...]
 alter_table_add_foreign_key
  : ALTER TABLE ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? fk_table_name=identifier
-   add_foreign_keys
- ;
-
-add_foreign_keys
- : add_foreign_key ( ',' add_foreign_key )*
+   add_foreign_key ( ',' add_foreign_key )*
  ;
 
 add_foreign_key
@@ -577,11 +573,19 @@ alter_table_rename
 
 // ALTER TABLE [IF EXISTS] table_name
 // RENAME COLUMN [IF EXISTS] column_to_column[, ...]
-//
+alter_table_rename_column
+ : ALTER TABLE ( IF EXISTS )? table_name=path_expression
+   rename_column ( ',' rename_column )*
+ ;
+
+rename_column
+ : RENAME COLUMN ( IF EXISTS )? column_to_column ( ',' column_to_column )*
+ ;
+
 // column_to_column
 //   column_name TO new_column_name
-alter_table_rename_column
- : expression // TODO
+column_to_column
+ : column_name=identifier TO new_column_name=identifier
  ;
 
 // ALTER TABLE table_name

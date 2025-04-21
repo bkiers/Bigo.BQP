@@ -333,12 +333,6 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitAlter_table_add_foreign_key([NotNull] BigQueryParser.Alter_table_add_foreign_keyContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.add_foreign_keys"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitAdd_foreign_keys([NotNull] BigQueryParser.Add_foreign_keysContext context);
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.add_foreign_key"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -362,6 +356,18 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitAlter_table_rename_column([NotNull] BigQueryParser.Alter_table_rename_columnContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.rename_column"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitRename_column([NotNull] BigQueryParser.Rename_columnContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.column_to_column"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitColumn_to_column([NotNull] BigQueryParser.Column_to_columnContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_table_drop_column"/>.
 	/// </summary>

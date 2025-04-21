@@ -637,18 +637,6 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitAlter_table_add_foreign_key([NotNull] BigQueryParser.Alter_table_add_foreign_keyContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.add_foreign_keys"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterAdd_foreign_keys([NotNull] BigQueryParser.Add_foreign_keysContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.add_foreign_keys"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitAdd_foreign_keys([NotNull] BigQueryParser.Add_foreign_keysContext context) { }
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.add_foreign_key"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -696,6 +684,30 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitAlter_table_rename_column([NotNull] BigQueryParser.Alter_table_rename_columnContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.rename_column"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterRename_column([NotNull] BigQueryParser.Rename_columnContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.rename_column"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitRename_column([NotNull] BigQueryParser.Rename_columnContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.column_to_column"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterColumn_to_column([NotNull] BigQueryParser.Column_to_columnContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.column_to_column"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitColumn_to_column([NotNull] BigQueryParser.Column_to_columnContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_table_drop_column"/>.
 	/// <para>The default implementation does nothing.</para>
