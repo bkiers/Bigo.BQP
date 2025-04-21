@@ -624,7 +624,9 @@ alter_table_set_default_collate
 // ALTER COLUMN [IF EXISTS] column_name
 // SET OPTIONS({ column_set_options_list | view_column_set_options_list })
 alter_table_column_set_options
- : expression // TODO
+ : ALTER ( TABLE | VIEW ) ( IF EXISTS )? name=path_expression
+   ALTER COLUMN ( IF EXISTS )? column_name=identifier
+   SET OPTIONS '(' option_parameters ')'
  ;
 
 // ALTER TABLE [IF EXISTS] table_name
