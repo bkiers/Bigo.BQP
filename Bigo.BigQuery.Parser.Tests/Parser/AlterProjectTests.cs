@@ -4,12 +4,9 @@ namespace Bigo.BigQuery.Parser.Tests.Parser;
 
 public class AlterProjectTests : BaseParserTest
 {
-    // [Theory]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
+    [Theory]
+    [InlineData("ALTER PROJECT project_id\nSET OPTIONS (\n  `region-us.default_time_zone` = \"America/New_York\",\n  `region-us.default_job_query_timeout_ms` = 1800000\n)")]
+    [InlineData("ALTER PROJECT project_id\nSET OPTIONS (\n  `region-us.default_time_zone` = NULL,\n  `region-us.default_kms_key_name` = NULL,\n  `region-us.default_query_job_timeout_ms` = NULL,\n  `region-us.default_interactive_query_queue_timeout_ms` = NULL,\n  `region-us.default_batch_query_queue_timeout_ms` = NULL)")]
     public void Test(string input)
     {
         ParseAllTokens(input, parser => parser.alter_project());

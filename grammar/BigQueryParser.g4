@@ -680,10 +680,9 @@ alter_organization
  : ALTER ORGANIZATION SET OPTIONS '(' option_parameters ')'
  ;
 
-// ALTER PROJECT project_id
-// SET OPTIONS (project_set_options_list)
+// ALTER PROJECT project_id SET OPTIONS (project_set_options_list)
 alter_project
- : expression // TODO
+ : ALTER PROJECT project_id=path_expression  SET OPTIONS '(' option_parameters ')'
  ;
 
 // ALTER BI_CAPACITY `project_id.location_id.default`
@@ -1449,7 +1448,7 @@ identifier
  | COPY | SNAPSHOT | CLONE | VIEW | DROP | SEARCH | INDEX | VECTOR | ASSIGNMENT | RESERVATION | POLICIES | POLICY
  | ACCESS | PROCEDURE | FUNCTION | REPLICA | COLUMNS | RETURNS | DETERMINISTIC | LANGUAGE | REMOTE | AGGREGATE | TYPE
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
- | ADD | RENAME | DATA | ORGANIZATION
+ | ADD | RENAME | DATA | ORGANIZATION | PROJECT
  ;
 
 // as_alias:
