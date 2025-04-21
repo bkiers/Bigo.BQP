@@ -62,6 +62,86 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitStatement([NotNull] BigQueryParser.StatementContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.ddl_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDdl_statement([NotNull] BigQueryParser.Ddl_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.ddl_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDdl_statement([NotNull] BigQueryParser.Ddl_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.dml_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDml_statement([NotNull] BigQueryParser.Dml_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.dml_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDml_statement([NotNull] BigQueryParser.Dml_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDcl_statement([NotNull] BigQueryParser.Dcl_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDcl_statement([NotNull] BigQueryParser.Dcl_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.procedural_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterProcedural_statement([NotNull] BigQueryParser.Procedural_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.procedural_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitProcedural_statement([NotNull] BigQueryParser.Procedural_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.export_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExport_statement([NotNull] BigQueryParser.Export_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.export_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExport_statement([NotNull] BigQueryParser.Export_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.load_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterLoad_statement([NotNull] BigQueryParser.Load_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.load_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitLoad_statement([NotNull] BigQueryParser.Load_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.declare"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDeclare([NotNull] BigQueryParser.DeclareContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.declare"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDeclare([NotNull] BigQueryParser.DeclareContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.query_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

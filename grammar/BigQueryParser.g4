@@ -14,13 +14,24 @@ single_statement
 
 statement
  : query_statement
+ | ddl_statement
+ | dml_statement
+ | dcl_statement
+ | procedural_statement
+ | export_statement
+ | load_statement
+ | debugging_statement
+ ;
+
+// Data definition language (DDL) statements
+ddl_statement
+ : create_schema
  | create_table
  | create_table_like
  | create_table_copy
  | create_snapshot_table
  | create_table_clone
  | create_view
- | create_schema
  | create_materialized_view
  | create_materialized_view_as_replica
  | create_external_schema
@@ -82,7 +93,42 @@ statement
  | drop_assignment
  | drop_search_index
  | drop_vector_index
+ ;
+
+dml_statement
+ : expression
+ // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax
+ ;
+
+dcl_statement
+ : expression
+ // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language
+ ;
+
+procedural_statement
+ : declare
  | set
+ // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language
+ ;
+
+export_statement
+ : expression
+ // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/export-statements
+ ;
+
+load_statement
+ : expression
+ // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/load-statements
+ ;
+
+debugging_statement
+ : expression
+ // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/debugging-statements
+ ;
+
+// DECLARE variable_name[, ...] [variable_type] [DEFAULT expression];
+declare
+ : expression // TODO
  ;
 
 query_statement

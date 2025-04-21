@@ -73,6 +73,102 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitStatement([NotNull] BigQueryParser.StatementContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.ddl_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDdl_statement([NotNull] BigQueryParser.Ddl_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.ddl_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDdl_statement([NotNull] BigQueryParser.Ddl_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.dml_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDml_statement([NotNull] BigQueryParser.Dml_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.dml_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDml_statement([NotNull] BigQueryParser.Dml_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDcl_statement([NotNull] BigQueryParser.Dcl_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDcl_statement([NotNull] BigQueryParser.Dcl_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.procedural_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterProcedural_statement([NotNull] BigQueryParser.Procedural_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.procedural_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitProcedural_statement([NotNull] BigQueryParser.Procedural_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.export_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExport_statement([NotNull] BigQueryParser.Export_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.export_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExport_statement([NotNull] BigQueryParser.Export_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.load_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterLoad_statement([NotNull] BigQueryParser.Load_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.load_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitLoad_statement([NotNull] BigQueryParser.Load_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.declare"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDeclare([NotNull] BigQueryParser.DeclareContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.declare"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDeclare([NotNull] BigQueryParser.DeclareContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.query_statement"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

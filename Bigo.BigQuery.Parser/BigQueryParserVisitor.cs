@@ -51,6 +51,54 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitStatement([NotNull] BigQueryParser.StatementContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.ddl_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDdl_statement([NotNull] BigQueryParser.Ddl_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.dml_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDml_statement([NotNull] BigQueryParser.Dml_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDcl_statement([NotNull] BigQueryParser.Dcl_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.procedural_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitProcedural_statement([NotNull] BigQueryParser.Procedural_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.export_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExport_statement([NotNull] BigQueryParser.Export_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.load_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitLoad_statement([NotNull] BigQueryParser.Load_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.declare"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDeclare([NotNull] BigQueryParser.DeclareContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.query_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
