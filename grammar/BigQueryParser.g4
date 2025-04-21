@@ -699,7 +699,7 @@ alter_capacity
 // ALTER RESERVATION `project_id.location_id.reservation_id`
 // SET OPTIONS (alter_reservation_option_list)
 alter_reservation
- : expression // TODO
+ : ALTER RESERVATION path_expression SET OPTIONS '(' option_parameters ')'
  ;
 
 // UNDROP SCHEMA [IF NOT EXISTS] [project_name.]dataset_name
