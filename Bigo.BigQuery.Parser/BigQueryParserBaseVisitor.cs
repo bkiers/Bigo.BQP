@@ -716,7 +716,7 @@ public partial class BigQueryParserBaseVisitor<Result> : AbstractParseTreeVisito
 	/// <return>The visitor result.</return>
 	public virtual Result VisitAlter_materialized_view([NotNull] BigQueryParser.Alter_materialized_viewContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_organication"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_organization"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -724,7 +724,7 @@ public partial class BigQueryParserBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitAlter_organication([NotNull] BigQueryParser.Alter_organicationContext context) { return VisitChildren(context); }
+	public virtual Result VisitAlter_organization([NotNull] BigQueryParser.Alter_organizationContext context) { return VisitChildren(context); }
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_project"/>.
 	/// <para>

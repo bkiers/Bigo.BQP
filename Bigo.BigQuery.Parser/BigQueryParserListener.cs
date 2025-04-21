@@ -712,15 +712,15 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitAlter_materialized_view([NotNull] BigQueryParser.Alter_materialized_viewContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_organication"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_organization"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAlter_organication([NotNull] BigQueryParser.Alter_organicationContext context);
+	void EnterAlter_organization([NotNull] BigQueryParser.Alter_organizationContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.alter_organication"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.alter_organization"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAlter_organication([NotNull] BigQueryParser.Alter_organicationContext context);
+	void ExitAlter_organization([NotNull] BigQueryParser.Alter_organizationContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_project"/>.
 	/// </summary>

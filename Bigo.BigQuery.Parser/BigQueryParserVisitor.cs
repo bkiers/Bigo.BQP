@@ -441,11 +441,11 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitAlter_materialized_view([NotNull] BigQueryParser.Alter_materialized_viewContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_organication"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_organization"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitAlter_organication([NotNull] BigQueryParser.Alter_organicationContext context);
+	Result VisitAlter_organization([NotNull] BigQueryParser.Alter_organizationContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_project"/>.
 	/// </summary>

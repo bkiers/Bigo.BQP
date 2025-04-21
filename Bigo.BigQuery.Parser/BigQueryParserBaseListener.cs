@@ -853,17 +853,17 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitAlter_materialized_view([NotNull] BigQueryParser.Alter_materialized_viewContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_organication"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_organization"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterAlter_organication([NotNull] BigQueryParser.Alter_organicationContext context) { }
+	public virtual void EnterAlter_organization([NotNull] BigQueryParser.Alter_organizationContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.alter_organication"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.alter_organization"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitAlter_organication([NotNull] BigQueryParser.Alter_organicationContext context) { }
+	public virtual void ExitAlter_organization([NotNull] BigQueryParser.Alter_organizationContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_project"/>.
 	/// <para>The default implementation does nothing.</para>

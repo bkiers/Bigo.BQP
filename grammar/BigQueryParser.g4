@@ -61,7 +61,7 @@ statement
  | alter_table_column_drop_default
  | alter_view
  | alter_materialized_view
- | alter_organication
+ | alter_organization
  | alter_project
  | alter_bi_capacity
  | alter_capacity
@@ -675,10 +675,9 @@ alter_materialized_view
    SET OPTIONS '(' option_parameters ')'
  ;
 
-// ALTER ORGANIZATION
-// SET OPTIONS ( organization_set_options_list )
-alter_organication
- : expression // TODO
+// ALTER ORGANIZATION SET OPTIONS ( organization_set_options_list )
+alter_organization
+ : ALTER ORGANIZATION SET OPTIONS '(' option_parameters ')'
  ;
 
 // ALTER PROJECT project_id
@@ -1450,7 +1449,7 @@ identifier
  | COPY | SNAPSHOT | CLONE | VIEW | DROP | SEARCH | INDEX | VECTOR | ASSIGNMENT | RESERVATION | POLICIES | POLICY
  | ACCESS | PROCEDURE | FUNCTION | REPLICA | COLUMNS | RETURNS | DETERMINISTIC | LANGUAGE | REMOTE | AGGREGATE | TYPE
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
- | ADD | RENAME | DATA
+ | ADD | RENAME | DATA | ORGANIZATION
  ;
 
 // as_alias:
