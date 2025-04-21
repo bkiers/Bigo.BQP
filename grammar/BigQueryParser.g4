@@ -643,10 +643,13 @@ alter_table_column_set_data_type
    ALTER COLUMN ( IF EXISTS )? column_name=identifier SET DATA TYPE data_type
  ;
 
-// ALTER TABLE [IF EXISTS] table_name ALTER COLUMN [IF EXISTS] column_name
+// ALTER TABLE [IF EXISTS] table_name
+// ALTER COLUMN [IF EXISTS] column_name
 // SET DEFAULT default_expression
 alter_table_column_set_default
- : expression // TODO
+ : ALTER TABLE ( IF EXISTS )? table_name=path_expression
+   ALTER COLUMN ( IF EXISTS )? column_name=identifier
+   SET DEFAULT expression
  ;
 
 // ALTER TABLE [IF EXISTS] table_name ALTER COLUMN [IF EXISTS] column_name
