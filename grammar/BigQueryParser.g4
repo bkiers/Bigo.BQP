@@ -571,7 +571,8 @@ alter_table_add_primary_key
 // ALTER TABLE [IF EXISTS] table_name
 // RENAME TO new_table_name
 alter_table_rename
- : expression // TODO
+ : ALTER TABLE ( IF EXISTS )? table_name=path_expression
+   RENAME TO new_table_name=path_expression
  ;
 
 // ALTER TABLE [IF EXISTS] table_name
@@ -1425,7 +1426,7 @@ identifier
  | COPY | SNAPSHOT | CLONE | VIEW | DROP | SEARCH | INDEX | VECTOR | ASSIGNMENT | RESERVATION | POLICIES | POLICY
  | ACCESS | PROCEDURE | FUNCTION | REPLICA | COLUMNS | RETURNS | DETERMINISTIC | LANGUAGE | REMOTE | AGGREGATE | TYPE
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
- | ADD
+ | ADD | RENAME
  ;
 
 // as_alias:

@@ -215,6 +215,7 @@ COLUMN : 'COLUMN';
 STORING : 'STORING';
 ALTER : 'ALTER';
 ADD : 'ADD';
+RENAME : 'RENAME';
 
 NAN : 'NAN';
 INF : [+-]? 'INF';
