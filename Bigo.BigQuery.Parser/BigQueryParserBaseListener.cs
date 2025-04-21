@@ -517,6 +517,30 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitCreate_search_index([NotNull] BigQueryParser.Create_search_indexContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.columns"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterColumns([NotNull] BigQueryParser.ColumnsContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.columns"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitColumns([NotNull] BigQueryParser.ColumnsContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.column"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterColumn([NotNull] BigQueryParser.ColumnContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.column"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitColumn([NotNull] BigQueryParser.ColumnContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.create_vector_index"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

@@ -233,7 +233,7 @@ create_external_schema
 // )
 create_external_table
  : CREATE ( OR REPLACE )? EXTERNAL TABLE ( IF NOT EXISTS )? table_name=path_expression
-   ( '(' columns=column_name_schemas ')' )?
+   ( '(' column_names=column_name_schemas ')' )?
    ( WITH CONNECTION ( connection_name=identifier | DEFAULT ) )?
    ( WITH PARTITION COLUMNS ( '(' partition_columns=column_name_schemas ')' )? )?
    OPTIONS '(' option_parameters ')'
@@ -444,38 +444,49 @@ create_stored_procedure
 // [GRANT TO (grantee_list)]
 // FILTER USING (filter_expression)
 create_row_access_policy
- : expression // TODO
+ : CREATE ( OR REPLACE )? ROW ACCESS POLICY ( IF NOT EXISTS )?
+   row_access_policy_name=path_expression ON table_name=path_expression
+   ( GRANT TO '(' grantee_list=expressions ')' )?
+   FILTER USING '(' filter_expression=expression ')'
  ;
 
-// CREATE CAPACITY
-// `project_id.location_id.commitment_id`
+// CREATE CAPACITY `project_id.location_id.commitment_id`
 // OPTIONS (capacity_commitment_option_list)
 create_capacity
- : expression // TODO
+ : CREATE CAPACITY expression OPTIONS '(' option_parameters ')'
  ;
 
 // CREATE RESERVATION
 // `project_id.location_id.reservation_id`
 // OPTIONS (reservation_option_list)
 create_reservation
- : expression // TODO
+ : CREATE RESERVATION expression OPTIONS '(' option_parameters ')'
  ;
 
 // CREATE ASSIGNMENT
 // `project_id.location_id.reservation_id.assignment_id`
 // OPTIONS (assignment_option_list)
 create_assignment
- : expression // TODO
+ : CREATE ASSIGNMENT expression OPTIONS '(' option_parameters ')'
  ;
 
 // CREATE SEARCH INDEX [ IF NOT EXISTS ] index_name
 // ON table_name({ALL COLUMNS [WITH COLUMN OPTIONS(column [, ...])] | column [, ...]})
 // [OPTIONS(index_option_list)]
-//
+create_search_index
+ : CREATE SEARCH INDEX ( IF NOT EXISTS )? index_name=path_expression
+   ON table_name=path_expression '(' ( ALL COLUMNS ( WITH COLUMN OPTIONS '(' columns ')' )? | columns ) ')'
+   ( OPTIONS '(' option_parameters ')' )?
+ ;
+
+columns
+ : column ( ',' column )*
+ ;
+
 // column
 //   column_name [OPTIONS(index_column_option_list)]
-create_search_index
- : expression // TODO
+column
+ : column_name=path_expression ( OPTIONS '(' option_parameters ')' )?
  ;
 
 // CREATE [ OR REPLACE ] VECTOR INDEX [ IF NOT EXISTS ] index_name
@@ -483,14 +494,17 @@ create_search_index
 // [STORING(stored_column_name [, ...])]
 // OPTIONS(index_option_list)
 create_vector_index
- : expression // TODO
+ : CREATE ( OR REPLACE )? VECTOR INDEX ( IF NOT EXISTS )? index_name=path_expression
+   ON table_name=path_expression '(' column_name=path_expression ')'
+   ( STORING '(' path_expressions ')' )?
+   OPTIONS '(' option_parameters ')'
  ;
 
-// ALTER SCHEMA [IF EXISTS]
-// [project_name.]dataset_name
+// ALTER SCHEMA [IF EXISTS] [project_name.]dataset_name
 // SET DEFAULT COLLATE collate_specification
 alter_schema_set_default_collate
- :  expression // TODO
+ : ALTER SCHEMA ( IF EXISTS )? ( project_name=identifier '.' )? dataset_name=identifier
+   SET DEFAULT COLLATE collate_specification=string_literal
  ;
 
 // ALTER SCHEMA [IF EXISTS]
@@ -1395,7 +1409,7 @@ identifier
  | TEMPORARY | TABLE | CONSTRAINT | ENFORCED | PRIMARY | KEY | FOREIGN | REFERENCES | CLUSTER | CONNECTION | ARRAY_AGG
  | COPY | SNAPSHOT | CLONE | VIEW | DROP | SEARCH | INDEX | VECTOR | ASSIGNMENT | RESERVATION | POLICIES | POLICY
  | ACCESS | PROCEDURE | FUNCTION | REPLICA | COLUMNS | RETURNS | DETERMINISTIC | LANGUAGE | REMOTE | AGGREGATE | TYPE
- | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL
+ | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
  ;
 
 // as_alias:

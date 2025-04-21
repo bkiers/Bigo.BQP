@@ -273,6 +273,18 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitCreate_search_index([NotNull] BigQueryParser.Create_search_indexContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.columns"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitColumns([NotNull] BigQueryParser.ColumnsContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.column"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitColumn([NotNull] BigQueryParser.ColumnContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.create_vector_index"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

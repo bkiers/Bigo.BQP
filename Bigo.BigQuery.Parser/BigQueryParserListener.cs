@@ -432,6 +432,26 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitCreate_search_index([NotNull] BigQueryParser.Create_search_indexContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.columns"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterColumns([NotNull] BigQueryParser.ColumnsContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.columns"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitColumns([NotNull] BigQueryParser.ColumnsContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.column"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterColumn([NotNull] BigQueryParser.ColumnContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.column"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitColumn([NotNull] BigQueryParser.ColumnContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.create_vector_index"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
