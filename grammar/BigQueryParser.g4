@@ -664,7 +664,8 @@ alter_table_column_drop_default
 // ALTER VIEW [IF EXISTS] view_name
 // SET OPTIONS(view_set_options_list)
 alter_view
- : expression // TODO
+ : ALTER VIEW ( IF EXISTS )? view_name=path_expression
+   SET OPTIONS '(' option_parameters ')'
  ;
 
 // ALTER MATERIALIZED VIEW [IF EXISTS] materialized_view_name
