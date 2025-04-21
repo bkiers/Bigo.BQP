@@ -216,6 +216,7 @@ STORING : 'STORING';
 ALTER : 'ALTER';
 ADD : 'ADD';
 RENAME : 'RENAME';
+DATA : 'DATA';
 
 NAN : 'NAN';
 INF : [+-]? 'INF';

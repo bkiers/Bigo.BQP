@@ -639,7 +639,8 @@ alter_table_column_drop_not_null
 // ALTER TABLE [IF EXISTS] table_name
 // ALTER COLUMN [IF EXISTS] column_name SET DATA TYPE column_schema
 alter_table_column_set_data_type
- : expression // TODO
+ : ALTER TABLE ( IF EXISTS )? table_name=path_expression
+   ALTER COLUMN ( IF EXISTS )? column_name=identifier SET DATA TYPE data_type
  ;
 
 // ALTER TABLE [IF EXISTS] table_name ALTER COLUMN [IF EXISTS] column_name
@@ -1441,7 +1442,7 @@ identifier
  | COPY | SNAPSHOT | CLONE | VIEW | DROP | SEARCH | INDEX | VECTOR | ASSIGNMENT | RESERVATION | POLICIES | POLICY
  | ACCESS | PROCEDURE | FUNCTION | REPLICA | COLUMNS | RETURNS | DETERMINISTIC | LANGUAGE | REMOTE | AGGREGATE | TYPE
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
- | ADD | RENAME
+ | ADD | RENAME | DATA
  ;
 
 // as_alias:
