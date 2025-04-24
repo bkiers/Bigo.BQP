@@ -2173,233 +2173,77 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitFunction_call([NotNull] BigQueryParser.Function_callContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.aggregate_function"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.function_name"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterAggregate_function([NotNull] BigQueryParser.Aggregate_functionContext context) { }
+	public virtual void EnterFunction_name([NotNull] BigQueryParser.Function_nameContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.aggregate_function"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.function_name"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitAggregate_function([NotNull] BigQueryParser.Aggregate_functionContext context) { }
+	public virtual void ExitFunction_name([NotNull] BigQueryParser.Function_nameContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.any_value"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.function_arguments"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterAny_value([NotNull] BigQueryParser.Any_valueContext context) { }
+	public virtual void EnterFunction_arguments([NotNull] BigQueryParser.Function_argumentsContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.any_value"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.function_arguments"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitAny_value([NotNull] BigQueryParser.Any_valueContext context) { }
+	public virtual void ExitFunction_arguments([NotNull] BigQueryParser.Function_argumentsContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.array_agg"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.function_expressions"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterArray_agg([NotNull] BigQueryParser.Array_aggContext context) { }
+	public virtual void EnterFunction_expressions([NotNull] BigQueryParser.Function_expressionsContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.array_agg"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.function_expressions"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitArray_agg([NotNull] BigQueryParser.Array_aggContext context) { }
+	public virtual void ExitFunction_expressions([NotNull] BigQueryParser.Function_expressionsContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.array_concat_agg"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.function_expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterArray_concat_agg([NotNull] BigQueryParser.Array_concat_aggContext context) { }
+	public virtual void EnterFunction_expression([NotNull] BigQueryParser.Function_expressionContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.array_concat_agg"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.function_expression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitArray_concat_agg([NotNull] BigQueryParser.Array_concat_aggContext context) { }
+	public virtual void ExitFunction_expression([NotNull] BigQueryParser.Function_expressionContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.avg"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.optional_clauses"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterAvg([NotNull] BigQueryParser.AvgContext context) { }
+	public virtual void EnterOptional_clauses([NotNull] BigQueryParser.Optional_clausesContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.avg"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.optional_clauses"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitAvg([NotNull] BigQueryParser.AvgContext context) { }
+	public virtual void ExitOptional_clauses([NotNull] BigQueryParser.Optional_clausesContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.bit_and"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.limit_clause"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterBit_and([NotNull] BigQueryParser.Bit_andContext context) { }
+	public virtual void EnterLimit_clause([NotNull] BigQueryParser.Limit_clauseContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.bit_and"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.limit_clause"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitBit_and([NotNull] BigQueryParser.Bit_andContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.bit_or"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterBit_or([NotNull] BigQueryParser.Bit_orContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.bit_or"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitBit_or([NotNull] BigQueryParser.Bit_orContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.bit_xor"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterBit_xor([NotNull] BigQueryParser.Bit_xorContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.bit_xor"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitBit_xor([NotNull] BigQueryParser.Bit_xorContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.count"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterCount([NotNull] BigQueryParser.CountContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.count"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitCount([NotNull] BigQueryParser.CountContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.countif"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterCountif([NotNull] BigQueryParser.CountifContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.countif"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitCountif([NotNull] BigQueryParser.CountifContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.grouping"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterGrouping([NotNull] BigQueryParser.GroupingContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.grouping"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitGrouping([NotNull] BigQueryParser.GroupingContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.logical_and"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLogical_and([NotNull] BigQueryParser.Logical_andContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.logical_and"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLogical_and([NotNull] BigQueryParser.Logical_andContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.logical_or"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLogical_or([NotNull] BigQueryParser.Logical_orContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.logical_or"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLogical_or([NotNull] BigQueryParser.Logical_orContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.max"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterMax([NotNull] BigQueryParser.MaxContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.max"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitMax([NotNull] BigQueryParser.MaxContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.max_by"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterMax_by([NotNull] BigQueryParser.Max_byContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.max_by"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitMax_by([NotNull] BigQueryParser.Max_byContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.min"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterMin([NotNull] BigQueryParser.MinContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.min"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitMin([NotNull] BigQueryParser.MinContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.min_by"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterMin_by([NotNull] BigQueryParser.Min_byContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.min_by"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitMin_by([NotNull] BigQueryParser.Min_byContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.string_agg"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterString_agg([NotNull] BigQueryParser.String_aggContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.string_agg"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitString_agg([NotNull] BigQueryParser.String_aggContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.sum"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterSum([NotNull] BigQueryParser.SumContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.sum"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitSum([NotNull] BigQueryParser.SumContext context) { }
+	public virtual void ExitLimit_clause([NotNull] BigQueryParser.Limit_clauseContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.order_by_keys"/>.
 	/// <para>The default implementation does nothing.</para>

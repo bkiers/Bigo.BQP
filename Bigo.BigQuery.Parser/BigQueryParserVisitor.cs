@@ -1101,119 +1101,41 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitFunction_call([NotNull] BigQueryParser.Function_callContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.aggregate_function"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.function_name"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitAggregate_function([NotNull] BigQueryParser.Aggregate_functionContext context);
+	Result VisitFunction_name([NotNull] BigQueryParser.Function_nameContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.any_value"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.function_arguments"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitAny_value([NotNull] BigQueryParser.Any_valueContext context);
+	Result VisitFunction_arguments([NotNull] BigQueryParser.Function_argumentsContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.array_agg"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.function_expressions"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitArray_agg([NotNull] BigQueryParser.Array_aggContext context);
+	Result VisitFunction_expressions([NotNull] BigQueryParser.Function_expressionsContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.array_concat_agg"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.function_expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitArray_concat_agg([NotNull] BigQueryParser.Array_concat_aggContext context);
+	Result VisitFunction_expression([NotNull] BigQueryParser.Function_expressionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.avg"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.optional_clauses"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitAvg([NotNull] BigQueryParser.AvgContext context);
+	Result VisitOptional_clauses([NotNull] BigQueryParser.Optional_clausesContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.bit_and"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.limit_clause"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBit_and([NotNull] BigQueryParser.Bit_andContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.bit_or"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBit_or([NotNull] BigQueryParser.Bit_orContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.bit_xor"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBit_xor([NotNull] BigQueryParser.Bit_xorContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.count"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCount([NotNull] BigQueryParser.CountContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.countif"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCountif([NotNull] BigQueryParser.CountifContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.grouping"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitGrouping([NotNull] BigQueryParser.GroupingContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.logical_and"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitLogical_and([NotNull] BigQueryParser.Logical_andContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.logical_or"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitLogical_or([NotNull] BigQueryParser.Logical_orContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.max"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMax([NotNull] BigQueryParser.MaxContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.max_by"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMax_by([NotNull] BigQueryParser.Max_byContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.min"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMin([NotNull] BigQueryParser.MinContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.min_by"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMin_by([NotNull] BigQueryParser.Min_byContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.string_agg"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitString_agg([NotNull] BigQueryParser.String_aggContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.sum"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitSum([NotNull] BigQueryParser.SumContext context);
+	Result VisitLimit_clause([NotNull] BigQueryParser.Limit_clauseContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.order_by_keys"/>.
 	/// </summary>

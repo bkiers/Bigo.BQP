@@ -301,7 +301,7 @@ column_name_schema
 //   [OPTIONS (function_option_list)]
 create_function
  : CREATE ( OR REPLACE )? ( TEMPORARY | TEMP )? FUNCTION ( IF NOT EXISTS )?
-   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier
    '(' named_parameters? ')'
    ( RETURNS data_type )?
    AS '(' expression ')'
@@ -331,7 +331,7 @@ named_parameter
 //   { DETERMINISTIC | NOT DETERMINISTIC }
 create_js_function
  : CREATE ( OR REPLACE )? ( TEMPORARY | TEMP )? FUNCTION ( IF NOT EXISTS )?
-   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier
    '(' named_parameters? ')'
    RETURNS data_type
    ( DETERMINISTIC | NOT DETERMINISTIC )?
@@ -350,7 +350,7 @@ create_js_function
 //   AS python_code
 create_py_function
  : CREATE ( OR REPLACE )? ( TEMPORARY | TEMP )? FUNCTION ( IF NOT EXISTS )?
-   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier
    '(' named_parameters? ')'
    RETURNS data_type
    LANGUAGE identifier
@@ -367,7 +367,7 @@ create_py_function
 //   [OPTIONS (function_option_list)]
 create_remote_function
  : CREATE ( OR REPLACE )? ( TEMPORARY | TEMP )? FUNCTION ( IF NOT EXISTS )?
-   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier
    '(' named_parameters? ')'
    RETURNS data_type
    REMOTE WITH CONNECTION connection_path=path_expression
@@ -381,7 +381,7 @@ create_remote_function
 //   [ OPTIONS ( function_option_list ) ]
 create_aggregate_function
  : CREATE ( OR REPLACE )? ( TEMPORARY | TEMP )? AGGREGATE FUNCTION ( IF NOT EXISTS )?
-   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier '(' function_parameters? ')'
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier '(' function_parameters? ')'
    ( RETURNS data_type )?
    AS '(' expression ')'
    ( OPTIONS '(' option_parameters ')' )?
@@ -405,7 +405,7 @@ function_parameter
 //   AS function_body
 create_aggregate_js_function
  : CREATE ( OR REPLACE )? ( TEMPORARY | TEMP )? AGGREGATE FUNCTION ( IF NOT EXISTS )?
-   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier '(' function_parameters? ')'
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier '(' function_parameters? ')'
    RETURNS data_type
    LANGUAGE identifier
    ( OPTIONS '(' option_parameters ')' )?
@@ -419,7 +419,7 @@ create_aggregate_js_function
 //   AS sql_query
 create_table_function
  : CREATE ( OR REPLACE )? TABLE FUNCTION ( IF NOT EXISTS )?
-   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier '(' table_function_parameters? ')'
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier '(' table_function_parameters? ')'
    ( RETURNS TABLE '<' column_declarations '>' )?
    ( OPTIONS '(' option_parameters ')' )?
    AS expression
@@ -453,7 +453,7 @@ column_declaration
 // END
 create_procedure
  : CREATE ( OR REPLACE )? PROCEDURE ( IF NOT EXISTS )?
-   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier '(' procedure_arguments? ')'
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier '(' procedure_arguments? ')'
    ( OPTIONS '(' option_parameters ')' )?
    BEGIN
    ';'* statement ( ';'+ statement )* ';'*
@@ -478,7 +478,7 @@ procedure_argument
 // LANGUAGE language [AS pyspark_code]
 create_stored_procedure
  : CREATE ( OR REPLACE )? PROCEDURE ( IF NOT EXISTS )?
-   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier '(' procedure_arguments? ')'
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier '(' procedure_arguments? ')'
    ( EXTERNAL SECURITY INVOKER )?
    WITH CONNECTION path_expression
    ( OPTIONS '(' option_parameters ')' )?
@@ -789,12 +789,12 @@ drop_materialized_view
 
 // DROP FUNCTION [IF EXISTS] [[project_name.]dataset_name.]function_name
 drop_function
- : DROP FUNCTION ( IF EXISTS )? ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier
+ : DROP FUNCTION ( IF EXISTS )? ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier
  ;
 
 // DROP TABLE FUNCTION [IF EXISTS] [[project_name.]dataset_name.]function_name
 drop_table_function
- : DROP TABLE FUNCTION ( IF EXISTS )? ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? function_name=identifier
+ : DROP TABLE FUNCTION ( IF EXISTS )? ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier
  ;
 
 // DROP PROCEDURE [IF EXISTS] [[project_name.]dataset_name.]procedure_name
@@ -1504,194 +1504,43 @@ as_alias
  ;
 
 function_call
- : ARRAY '(' expression ')' // ARRAY(subquery)
- | AVG '(' expression ( ',' identifier '=>' expression )? ')' // AVG( expression, [ contribution_bounds_per_group => (lower_bound, upper_bound) ] )
- | CAST '(' expression AS typename=identifier format_clause? ')' // CAST(expression AS typename [format_clause])
- | COLLATE '(' expression ',' expression ')' // COLLATE(value, collate_specification)
- | EXTRACT '(' identifier FROM expression ')' // EXTRACT(part FROM date_expression)
- | aggregate_function
- | identifier '(' expressions? ')'
+ : function_name '(' function_arguments? ')' ( OVER over_clause )?
+// | ARRAY '(' expression ')' // ARRAY(subquery)
+// | AVG '(' expression ( ',' identifier '=>' expression )? ')' // AVG( expression, [ contribution_bounds_per_group => (lower_bound, upper_bound) ] )
+// | CAST '(' expression AS typename=identifier format_clause? ( AT TIMEZONE expression )? ')' // CAST(expression AS typename [format_clause])
+// | COLLATE '(' expression ',' expression ')' // COLLATE(value, collate_specification)
+// | EXTRACT '(' identifier FROM expression ')' // EXTRACT(part FROM date_expression)
+// | aggregate_function
+// | identifier '(' expressions? ')'
  ;
 
-aggregate_function
- : any_value
- | array_agg
- | array_concat_agg
- | avg
- | bit_and
- | bit_or
- | bit_xor
- | count
- | countif
- | grouping
- | logical_and
- | logical_or
- | max
- | max_by
- | min
- | min_by
- | string_agg
- | sum
+function_name
+ : reserved
+ | path_expression
  ;
 
-// ANY_VALUE(
-//   expression
-//   [ HAVING { MAX | MIN } expression2 ]
-// )
-// [ OVER over_clause ]
-any_value
- : ANY_VALUE '(' expression ( HAVING ( MAX | MIN ) expression)? ')' ( OVER over_clause )?
+function_arguments
+ : DISTINCT? ( '*' | function_expressions ) optional_clauses
  ;
 
-// ARRAY_AGG(
-//   [ DISTINCT ]
-//   expression
-//   [ { IGNORE | RESPECT } NULLS ]
-//   [ ORDER BY key [ { ASC | DESC } ] [, ... ] ]
-//   [ LIMIT n ]
-// )
-// [ OVER over_clause ]
-array_agg
- : ARRAY_AGG '('
-     DISTINCT?
-     expression
-     ( ( IGNORE | RESPECT ) NULLS )?
-     order_by_keys?
-     ( LIMIT expression )?
-   ')'
-   ( OVER over_clause )?
+function_expressions
+ : function_expression ( ',' function_expression )*
  ;
 
-// ARRAY_CONCAT_AGG(
-//   expression
-//   [ ORDER BY key [ { ASC | DESC } ] [, ... ] ]
-//   [ LIMIT n ]
-// )
-array_concat_agg
- : ARRAY_CONCAT_AGG '(' expression ( order_by_keys )? ( LIMIT expression )? ')'
+function_expression
+ : expression ( FROM expression
+              | '=>' expression
+              | HAVING ( MAX | MIN ) expression
+              | ( IGNORE | RESPECT ) NULLS
+              )?
  ;
 
-// AVG(
-//   [ DISTINCT ]
-//   expression
-// )
-// [ OVER over_clause ]
-avg
- : AVG '(' DISTINCT? expression ')' ( OVER over_clause )?
+optional_clauses
+ : order_by_keys? limit_clause?
  ;
 
-// BIT_AND(
-//   expression
-// )
-bit_and
- : BIT_AND '(' expression ')'
- ;
-
-// BIT_OR(
-//   expression
-// )
-bit_or
- : BIT_OR '(' expression ')'
- ;
-
-// BIT_XOR(
-//   [ DISTINCT ]
-//   expression
-// )
-bit_xor
- : BIT_XOR '(' DISTINCT? expression ')'
- ;
-
-// COUNT(
-//   [ DISTINCT ]
-//   expression
-// )
-// [ OVER over_clause ]
-count
- : COUNT '(' DISTINCT? ( expression | '*' ) ')' ( OVER over_clause )?
- ;
-
-// COUNTIF(
-//   [ DISTINCT ]
-//   expression
-// )
-// [ OVER over_clause ]
-countif
- : COUNTIF '(' DISTINCT? expression ')' ( OVER over_clause )?
- ;
-
-// GROUPING(groupable_value)
-grouping
- : GROUPING '(' expression ')'
- ;
-
-// LOGICAL_AND(
-//   expression
-// )
-logical_and
- : LOGICAL_AND '(' expression ')'
- ;
-
-// LOGICAL_OR(
-//   expression
-// )
-logical_or
- : LOGICAL_OR '(' expression ')'
- ;
-
-// MAX(
-//   expression
-// )
-// [ OVER over_clause ]
-//
-max
- : MAX '(' expression ')' ( OVER over_clause )?
- ;
-
-// MAX_BY(
-//   x, y
-// )
-max_by
- : MAX_BY '(' expression ',' expression ')'
- ;
-
-// MIN(
-//   expression
-// )
-// [ OVER over_clause ]
-min
- : MIN '(' expression ')' ( OVER over_clause )?
- ;
-
-// MIN_BY(
-//   x, y
-// )
-min_by
- : MIN_BY '(' expression ',' expression ')'
- ;
-
-// STRING_AGG(
-//   [ DISTINCT ]
-//   expression [, delimiter]
-//   [ ORDER BY key [ { ASC | DESC } ] [, ... ] ]
-//   [ LIMIT n ]
-// )
-// [ OVER over_clause ]
-string_agg
- : STRING_AGG '(' DISTINCT?
-     expression ( ',' delimiter=string_literal )?
-     order_by_keys?
-     ( LIMIT expression )?
-   ')'
- ;
-
-// SUM(
-//   [ DISTINCT ]
-//   expression
-// )
-// [ OVER over_clause ]
-sum
- : SUM '(' DISTINCT? expression ')' ( OVER over_clause )?
+limit_clause
+ : LIMIT expression
  ;
 
 // ORDER BY key [ { ASC | DESC } ] [, ... ]
