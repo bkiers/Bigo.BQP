@@ -145,17 +145,17 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitLoad_statement([NotNull] BigQueryParser.Load_statementContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.assert_statement"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context) { }
+	public virtual void EnterAssert_statement([NotNull] BigQueryParser.Assert_statementContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.assert_statement"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context) { }
+	public virtual void ExitAssert_statement([NotNull] BigQueryParser.Assert_statementContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.declare"/>.
 	/// <para>The default implementation does nothing.</para>

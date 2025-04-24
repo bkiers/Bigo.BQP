@@ -126,7 +126,7 @@ public partial class BigQueryParserBaseVisitor<Result> : AbstractParseTreeVisito
 	/// <return>The visitor result.</return>
 	public virtual Result VisitLoad_statement([NotNull] BigQueryParser.Load_statementContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.assert_statement"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -134,7 +134,7 @@ public partial class BigQueryParserBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context) { return VisitChildren(context); }
+	public virtual Result VisitAssert_statement([NotNull] BigQueryParser.Assert_statementContext context) { return VisitChildren(context); }
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.declare"/>.
 	/// <para>

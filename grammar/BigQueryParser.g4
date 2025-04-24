@@ -20,7 +20,7 @@ statement
  | procedural_statement
  | export_statement
  | load_statement
- | debugging_statement
+ | assert_statement
  ;
 
 // Data definition language (DDL) statements
@@ -121,9 +121,9 @@ load_statement
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/load-statements
  ;
 
-debugging_statement
- : expression
- // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/debugging-statements
+// ASSERT expression [AS description]
+assert_statement
+ : ASSERT expression ( AS description=string_literal )?
  ;
 
 // DECLARE variable_name[, ...] [variable_type] [DEFAULT expression];
@@ -1506,6 +1506,7 @@ identifier
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
+ | ASSERT
  ;
 
 // as_alias:

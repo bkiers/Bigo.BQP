@@ -87,11 +87,11 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitLoad_statement([NotNull] BigQueryParser.Load_statementContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.assert_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context);
+	Result VisitAssert_statement([NotNull] BigQueryParser.Assert_statementContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.declare"/>.
 	/// </summary>

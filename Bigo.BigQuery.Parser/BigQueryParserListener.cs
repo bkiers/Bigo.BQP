@@ -122,15 +122,15 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitLoad_statement([NotNull] BigQueryParser.Load_statementContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.assert_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context);
+	void EnterAssert_statement([NotNull] BigQueryParser.Assert_statementContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.debugging_statement"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.assert_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDebugging_statement([NotNull] BigQueryParser.Debugging_statementContext context);
+	void ExitAssert_statement([NotNull] BigQueryParser.Assert_statementContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.declare"/>.
 	/// </summary>
