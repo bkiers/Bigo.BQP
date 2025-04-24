@@ -116,9 +116,29 @@ export_statement
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/export-statements
  ;
 
+// LOAD DATA {OVERWRITE|INTO}  [{TEMP|TEMPORARY} TABLE]
+// [[project_name.]dataset_name.]table_name
+// [( column_list )]
+// [[OVERWRITE] PARTITIONS (partition_column_name=partition_value)]
+// [PARTITION BY partition_expression]
+// [CLUSTER BY clustering_column_list]
+// [OPTIONS (table_option_list)]
+// FROM FILES(load_option_list)
+// [WITH PARTITION COLUMNS [(partition_column_list)] ]
+// [WITH CONNECTION connection_name]
+//
+// partition_column_list: partition_column_name, partition_column_type[, ...]
 load_statement
- : expression
- // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/load-statements
+ : LOAD DATA ( OVERWRITE | INTO ) ( ( TEMP | TEMPORARY ) TABLE )?
+   ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? table_name=identifier
+   ( '(' column_list=columns ')' )?
+   ( OVERWRITE? PARTITIONS '(' path_expression '=' expression ')' )?
+   ( PARTITION BY partition_expression=expression )?
+   ( CLUSTER BY path_expressions )?
+   ( OPTIONS '(' option_parameters ')' )?
+   FROM FILES '(' option_parameters ')'
+   ( WITH PARTITION COLUMNS ( '(' column_name_schemas ')' )? )?
+   ( WITH CONNECTION connection_name=identifier )?
  ;
 
 // ASSERT expression [AS description]
@@ -1506,7 +1526,7 @@ identifier
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
- | ASSERT
+ | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES
  ;
 
 // as_alias:
