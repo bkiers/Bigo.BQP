@@ -1702,6 +1702,16 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitData_type([NotNull] BigQueryParser.Data_typeContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.any_identifier"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAny_identifier([NotNull] BigQueryParser.Any_identifierContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.any_identifier"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAny_identifier([NotNull] BigQueryParser.Any_identifierContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.string_literal"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -1721,6 +1731,16 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDate_literal([NotNull] BigQueryParser.Date_literalContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.time_literal"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTime_literal([NotNull] BigQueryParser.Time_literalContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.time_literal"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTime_literal([NotNull] BigQueryParser.Time_literalContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.datetime_literal"/>.
 	/// </summary>

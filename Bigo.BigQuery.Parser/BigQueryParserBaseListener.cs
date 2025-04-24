@@ -2041,6 +2041,18 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitData_type([NotNull] BigQueryParser.Data_typeContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.any_identifier"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterAny_identifier([NotNull] BigQueryParser.Any_identifierContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.any_identifier"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitAny_identifier([NotNull] BigQueryParser.Any_identifierContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.string_literal"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -2064,6 +2076,18 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDate_literal([NotNull] BigQueryParser.Date_literalContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.time_literal"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterTime_literal([NotNull] BigQueryParser.Time_literalContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.time_literal"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitTime_literal([NotNull] BigQueryParser.Time_literalContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.datetime_literal"/>.
 	/// <para>The default implementation does nothing.</para>

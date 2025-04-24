@@ -236,6 +236,7 @@ MIN_BY : 'MIN_BY';
 STRING_AGG : 'STRING_AGG';
 SUM : 'SUM';
 TIMEZONE : 'TIMEZONE';
+TIME : 'TIME';
 
 NAN : 'NAN';
 INF : [+-]? 'INF';

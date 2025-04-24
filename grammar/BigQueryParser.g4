@@ -1411,6 +1411,7 @@ literal
  | array_literal
  | struct_literal
  | date_literal
+ | time_literal
  | datetime_literal
  | timestamp_literal
  | range_literal
@@ -1421,6 +1422,8 @@ literal
  | NULL
  | TRUE
  | FALSE
+ | INF
+ | NAN
  ;
 
 numeric_literal
@@ -1440,12 +1443,16 @@ struct_literal
  ;
 
 data_type
- : ( ARRAY ( '<' data_type '>' )?
-   | STRUCT ( '<' data_type ( ',' data_type )* '>' )?
+ : ( any_identifier ( '<' data_type ( ',' data_type )* '>' )?
    | identifier data_type
    | identifier
    )
    ( '(' expressions ')' )? ( COLLATE string_literal )? ( NOT NULL )? ( OPTIONS '(' option_parameters ')' )?
+ ;
+
+any_identifier
+ : reserved
+ | identifier
  ;
 
 string_literal
@@ -1455,6 +1462,10 @@ string_literal
 
 date_literal
  : DATE string_literal
+ ;
+
+time_literal
+ : TIME string_literal
  ;
 
 datetime_literal
@@ -1494,7 +1505,7 @@ identifier
  | ACCESS | PROCEDURE | FUNCTION | REPLICA | COLUMNS | RETURNS | DETERMINISTIC | LANGUAGE | REMOTE | AGGREGATE | TYPE
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
- | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM
+ | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
  ;
 
 // as_alias:
@@ -1505,13 +1516,6 @@ as_alias
 
 function_call
  : function_name '(' function_arguments? ')' ( OVER over_clause )?
-// | ARRAY '(' expression ')' // ARRAY(subquery)
-// | AVG '(' expression ( ',' identifier '=>' expression )? ')' // AVG( expression, [ contribution_bounds_per_group => (lower_bound, upper_bound) ] )
-// | CAST '(' expression AS typename=identifier format_clause? ( AT TIMEZONE expression )? ')' // CAST(expression AS typename [format_clause])
-// | COLLATE '(' expression ',' expression ')' // COLLATE(value, collate_specification)
-// | EXTRACT '(' identifier FROM expression ')' // EXTRACT(part FROM date_expression)
-// | aggregate_function
-// | identifier '(' expressions? ')'
  ;
 
 function_name
@@ -1520,7 +1524,7 @@ function_name
  ;
 
 function_arguments
- : DISTINCT? ( '*' | function_expressions ) optional_clauses
+ : DISTINCT? function_expressions optional_clauses
  ;
 
 function_expressions
@@ -1528,11 +1532,12 @@ function_expressions
  ;
 
 function_expression
- : expression ( FROM expression
-              | '=>' expression
-              | HAVING ( MAX | MIN ) expression
-              | ( IGNORE | RESPECT ) NULLS
-              )?
+ : ( '*' | expression ) ( FROM expression
+                        | '=>' expression
+                        | HAVING ( MAX | MIN ) expression
+                        | AS data_type format_clause? ( AT TIMEZONE expression )?
+                        | ( IGNORE | RESPECT ) NULLS
+                        )?
  ;
 
 optional_clauses
@@ -1561,7 +1566,7 @@ window_function
 // over_clause:
 //   { named_window | ( [ window_specification ] ) }
 over_clause
- : named_window=identifier
+ : named_window=identifier as_alias?
  | '(' window_specification ')'
  ;
 

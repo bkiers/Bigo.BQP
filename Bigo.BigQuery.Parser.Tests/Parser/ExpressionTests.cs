@@ -73,6 +73,7 @@ public class ExpressionTests : BaseParserTest
     [InlineData("b'a' LIKE ALL (COLLATE('a', 'und:ci'), 'A')")]
     [InlineData("a || b")]
     [InlineData("a || b || c")]
+    [InlineData("(SELECT AVG(level) FROM Players)")]
     public void Test(string input)
     {
         ParseAllTokens(input, parser => parser.expression());

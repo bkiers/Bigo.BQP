@@ -1035,6 +1035,12 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitData_type([NotNull] BigQueryParser.Data_typeContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.any_identifier"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitAny_identifier([NotNull] BigQueryParser.Any_identifierContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.string_literal"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -1046,6 +1052,12 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitDate_literal([NotNull] BigQueryParser.Date_literalContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.time_literal"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitTime_literal([NotNull] BigQueryParser.Time_literalContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.datetime_literal"/>.
 	/// </summary>
