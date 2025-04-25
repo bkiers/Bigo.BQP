@@ -141,6 +141,12 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitCase_search_expression([NotNull] BigQueryParser.Case_search_expressionContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.if_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitIf_statement([NotNull] BigQueryParser.If_statementContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

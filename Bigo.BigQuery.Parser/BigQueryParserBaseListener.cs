@@ -253,6 +253,18 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitCase_search_expression([NotNull] BigQueryParser.Case_search_expressionContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.if_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterIf_statement([NotNull] BigQueryParser.If_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.if_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitIf_statement([NotNull] BigQueryParser.If_statementContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

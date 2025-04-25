@@ -212,6 +212,16 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitCase_search_expression([NotNull] BigQueryParser.Case_search_expressionContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.if_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterIf_statement([NotNull] BigQueryParser.If_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.if_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitIf_statement([NotNull] BigQueryParser.If_statementContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

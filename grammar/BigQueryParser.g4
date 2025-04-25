@@ -117,6 +117,7 @@ procedural_statement
  | begin_exception_end
  | case_
  | case_search_expression
+ | if_statement
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language
  | call
  ;
@@ -211,6 +212,17 @@ case_search_expression
    ( WHEN expression THEN statement_list )+
    ( ELSE statement_list )?
    END CASE
+ ;
+
+// IF condition THEN [sql_statement_list]
+//   [ELSEIF condition THEN sql_statement_list] [...]
+//   [ELSE sql_statement_list]
+// END IF
+if_statement
+ : IF expression THEN statement_list?
+   ( ELSEIF expression THEN statement_list )*
+   ( ELSE statement_list )?
+   END IF
  ;
 
 // CALL procedure_name (procedure_argument[, …])
@@ -1583,6 +1595,7 @@ identifier
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
  | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE | EXCEPTION | ERROR | CALL
+ | ELSEIF
  ;
 
 // as_alias:
