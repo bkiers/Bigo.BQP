@@ -192,6 +192,26 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitBegin_exception_end([NotNull] BigQueryParser.Begin_exception_endContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.case_"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCase_([NotNull] BigQueryParser.Case_Context context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.case_"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCase_([NotNull] BigQueryParser.Case_Context context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.case_search_expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCase_search_expression([NotNull] BigQueryParser.Case_search_expressionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.case_search_expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCase_search_expression([NotNull] BigQueryParser.Case_search_expressionContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -1631,16 +1651,6 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitCase_expression([NotNull] BigQueryParser.Case_expressionContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.case_"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterCase_([NotNull] BigQueryParser.Case_Context context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.case_"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitCase_([NotNull] BigQueryParser.Case_Context context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.coalesce"/>.
 	/// </summary>

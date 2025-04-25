@@ -229,6 +229,30 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitBegin_exception_end([NotNull] BigQueryParser.Begin_exception_endContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.case_"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterCase_([NotNull] BigQueryParser.Case_Context context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.case_"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitCase_([NotNull] BigQueryParser.Case_Context context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.case_search_expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterCase_search_expression([NotNull] BigQueryParser.Case_search_expressionContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.case_search_expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitCase_search_expression([NotNull] BigQueryParser.Case_search_expressionContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -1956,18 +1980,6 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitCase_expression([NotNull] BigQueryParser.Case_expressionContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.case_"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterCase_([NotNull] BigQueryParser.Case_Context context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.case_"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitCase_([NotNull] BigQueryParser.Case_Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.coalesce"/>.
 	/// <para>The default implementation does nothing.</para>

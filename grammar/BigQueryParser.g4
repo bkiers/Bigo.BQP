@@ -115,6 +115,8 @@ procedural_statement
  | execute_immediate
  | begin_end
  | begin_exception_end
+ | case_
+ | case_search_expression
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language
  | call
  ;
@@ -188,6 +190,27 @@ begin_end
 // END
 begin_exception_end
  : BEGIN statement_list EXCEPTION WHEN ERROR THEN statement_list END
+ ;
+
+// CASE
+//   WHEN condition THEN result [ ... ]
+//   [ ELSE else_result ]
+//   END
+case_
+ : CASE ( WHEN expr_to_match=expression THEN result=expression )+
+   ( ELSE else_result=expression )?
+   END
+ ;
+
+// CASE search_expression
+//   WHEN expression THEN sql_statement_list [...]
+//   [ELSE sql_statement_list]
+// END CASE
+case_search_expression
+ : CASE search_expression=expression
+   ( WHEN expression THEN statement_list )+
+   ( ELSE statement_list )?
+   END CASE
  ;
 
 // CALL procedure_name (procedure_argument[, …])
@@ -1408,7 +1431,6 @@ expression
  | window_function
  | literal
  | case_expression
- | case_
  | coalesce
  | if_
  | ifnull
@@ -1425,16 +1447,6 @@ expressions
 //   END
 case_expression
  : CASE expression ( WHEN expr_to_match=expression THEN result=expression )+
-   ( ELSE else_result=expression )?
-   END
- ;
-
-// CASE
-//   WHEN condition THEN result [ ... ]
-//   [ ELSE else_result ]
-//   END
-case_
- : CASE ( WHEN expr_to_match=expression THEN result=expression )+
    ( ELSE else_result=expression )?
    END
  ;

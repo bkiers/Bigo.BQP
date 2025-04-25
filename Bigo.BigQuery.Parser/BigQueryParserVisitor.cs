@@ -129,6 +129,18 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitBegin_exception_end([NotNull] BigQueryParser.Begin_exception_endContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.case_"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitCase_([NotNull] BigQueryParser.Case_Context context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.case_search_expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitCase_search_expression([NotNull] BigQueryParser.Case_search_expressionContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -992,12 +1004,6 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitCase_expression([NotNull] BigQueryParser.Case_expressionContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.case_"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCase_([NotNull] BigQueryParser.Case_Context context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.coalesce"/>.
 	/// </summary>
