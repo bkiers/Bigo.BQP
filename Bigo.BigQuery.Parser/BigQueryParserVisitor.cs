@@ -69,6 +69,18 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitDml_statement([NotNull] BigQueryParser.Dml_statementContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.insert_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitInsert_statement([NotNull] BigQueryParser.Insert_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.input"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitInput([NotNull] BigQueryParser.InputContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

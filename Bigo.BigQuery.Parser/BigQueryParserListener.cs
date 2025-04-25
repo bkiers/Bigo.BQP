@@ -92,6 +92,26 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitDml_statement([NotNull] BigQueryParser.Dml_statementContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.insert_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterInsert_statement([NotNull] BigQueryParser.Insert_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.insert_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitInsert_statement([NotNull] BigQueryParser.Insert_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.input"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterInput([NotNull] BigQueryParser.InputContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.input"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitInput([NotNull] BigQueryParser.InputContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

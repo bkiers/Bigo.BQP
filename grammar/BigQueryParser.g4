@@ -100,8 +100,26 @@ ddl_statement
  ;
 
 dml_statement
- : expression
+ : insert_statement
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax
+ ;
+
+// INSERT [INTO] target_name
+//   [(column_1 [, ..., column_n ] )]
+//   input
+insert_statement
+ : INSERT INTO? target_name=path_expression ( '(' columns ')' )? input
+ ;
+
+// input ::=
+//     VALUES (expr_1 [, ..., expr_n ] )
+//        [, ..., (expr_k_1 [, ..., expr_k_n ] ) ]
+//   | SELECT_QUERY
+//
+// expr ::= value_expression | DEFAULT
+input
+ : VALUES '(' expressions ')' ( ','  '(' expressions ')' )*
+ | query_expression
  ;
 
 dcl_statement
@@ -259,7 +277,7 @@ label
 //   sql_statement_list
 // END LOOP
 loop
- :
+ : LOOP statement_list END LOOP
  ;
 
 // REPEAT
@@ -267,7 +285,7 @@ loop
 //   UNTIL boolean_condition
 // END REPEAT
 repeat
- :
+ : REPEAT statement_list UNTIL expression END REPEAT
  ;
 
 // WHILE boolean_expression DO
@@ -1592,6 +1610,7 @@ literal
  | FALSE
  | INF
  | NAN
+ | DEFAULT
  ;
 
 numeric_literal
@@ -1676,7 +1695,7 @@ identifier
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
  | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE | EXCEPTION | ERROR | CALL
  | ELSEIF | LOOP | WHILE | DO | REPEAT | UNTIL | BREAK | LEAVE | CONTINUE | ITERATE | RETURN | TRANSACTION | COMMIT
- | ROLLBACK | MESSAGE | RAISE
+ | ROLLBACK | MESSAGE | RAISE | INSERT | VALUES
  ;
 
 // as_alias:
