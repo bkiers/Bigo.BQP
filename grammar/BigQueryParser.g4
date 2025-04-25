@@ -148,9 +148,9 @@ assert_statement
  : ASSERT expression ( AS description=string_literal )?
  ;
 
-// DECLARE variable_name[, ...] [variable_type] [DEFAULT expression];
+// DECLARE variable_name[, ...] [variable_type] [DEFAULT expression]
 declare
- : expression // TODO
+ : DECLARE path_expressions data_type? ( DEFAULT expression )?
  ;
 
 query_statement
@@ -1340,7 +1340,7 @@ select_all
  ;
 
 expression
- : '(' expression ')'
+ : '(' query_expression ')'
  | select
  | path_expression
  | expression '.' path_expression
@@ -1528,7 +1528,7 @@ identifier
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
- | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT
+ | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE
  ;
 
 // as_alias:
