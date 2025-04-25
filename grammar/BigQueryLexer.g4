@@ -2,6 +2,7 @@ lexer grammar BigQueryLexer;
 
 options { caseInsensitive=true; }
 
+COL : ':';
 BNOT : '~';
 CONCAT : '||';
 SCOL : ';';
@@ -250,6 +251,15 @@ EXCEPTION : 'EXCEPTION';
 ERROR : 'ERROR';
 CALL : 'CALL';
 ELSEIF : 'ELSEIF';
+LOOP : 'LOOP';
+WHILE : 'WHILE';
+DO : 'DO';
+REPEAT : 'REPEAT';
+UNTIL : 'UNTIL';
+BREAK : 'BREAK';
+LEAVE : 'LEAVE';
+CONTINUE : 'CONTINUE';
+ITERATE : 'ITERATE';
 
 NAN : 'NAN';
 INF : [+-]? 'INF';

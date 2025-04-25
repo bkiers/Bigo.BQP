@@ -33,11 +33,11 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.statements"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.parse"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitStatements([NotNull] BigQueryParser.StatementsContext context);
+	Result VisitParse([NotNull] BigQueryParser.ParseContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.single_statement"/>.
 	/// </summary>
@@ -80,6 +80,12 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitProcedural_statement([NotNull] BigQueryParser.Procedural_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.exception_when_error"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitException_when_error([NotNull] BigQueryParser.Exception_when_errorContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.export_statement"/>.
 	/// </summary>
@@ -146,6 +152,18 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitIf_statement([NotNull] BigQueryParser.If_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.label"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitLabel([NotNull] BigQueryParser.LabelContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.while"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitWhile([NotNull] BigQueryParser.WhileContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// </summary>

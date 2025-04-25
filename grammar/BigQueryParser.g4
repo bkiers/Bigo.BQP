@@ -4,12 +4,12 @@ options {
   tokenVocab=BigQueryLexer;
 }
 
-statements
+parse
  : statement_list EOF
  ;
 
 single_statement
- : ';'* statement ';'* EOF
+ : ';'* statement ';'*
  ;
 
 statement_list
@@ -110,7 +110,9 @@ dcl_statement
  ;
 
 procedural_statement
- : declare
+ : exception_when_error
+ | ( BREAK | LEAVE | CONTINUE | ITERATE ) identifier
+ | declare
  | set
  | execute_immediate
  | begin_end
@@ -118,8 +120,14 @@ procedural_statement
  | case_
  | case_search_expression
  | if_statement
+ | label
+ | while
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language
  | call
+ ;
+
+exception_when_error
+ : EXCEPTION WHEN ERROR THEN statement_list
  ;
 
 // EXPORT DATA [WITH CONNECTION connection_name]
@@ -190,7 +198,7 @@ begin_end
 //   sql_statement_list
 // END
 begin_exception_end
- : BEGIN statement_list EXCEPTION WHEN ERROR THEN statement_list END
+ : BEGIN statement_list END
  ;
 
 // CASE
@@ -223,6 +231,28 @@ if_statement
    ( ELSEIF expression THEN statement_list )*
    ( ELSE statement_list )?
    END IF
+ ;
+
+// label_name: BEGIN block_statement_list END [label_name]
+// label_name: LOOP loop_statement_list END LOOP [label_name]
+// label_name: WHILE condition DO loop_statement_list END WHILE [label_name]
+// label_name: FOR variable IN query DO loop_statement_list END FOR [label_name]
+// label_name: REPEAT loop_statement_list UNTIL boolean_condition END REPEAT [label_name]
+label
+ : identifier ':'
+   ( BEGIN statement_list END identifier?
+   | LOOP statement_list END LOOP identifier?
+   | WHILE expression DO statement_list END WHILE identifier?
+   | FOR identifier IN expression DO statement_list END FOR identifier?
+   | REPEAT statement_list UNTIL expression END REPEAT identifier?
+   )
+ ;
+
+// WHILE boolean_expression DO
+//   sql_statement_list
+// END WHILE
+while
+ : WHILE expression DO statement_list END WHILE
  ;
 
 // CALL procedure_name (procedure_argument[, …])
@@ -1595,7 +1625,7 @@ identifier
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
  | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE | EXCEPTION | ERROR | CALL
- | ELSEIF
+ | ELSEIF | LOOP | WHILE | DO | REPEAT | UNTIL | BREAK | LEAVE | CONTINUE | ITERATE
  ;
 
 // as_alias:

@@ -32,15 +32,15 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IBigQueryParserListener : IParseTreeListener {
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.statements"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.parse"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterStatements([NotNull] BigQueryParser.StatementsContext context);
+	void EnterParse([NotNull] BigQueryParser.ParseContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.statements"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.parse"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitStatements([NotNull] BigQueryParser.StatementsContext context);
+	void ExitParse([NotNull] BigQueryParser.ParseContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.single_statement"/>.
 	/// </summary>
@@ -111,6 +111,16 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitProcedural_statement([NotNull] BigQueryParser.Procedural_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.exception_when_error"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterException_when_error([NotNull] BigQueryParser.Exception_when_errorContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.exception_when_error"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitException_when_error([NotNull] BigQueryParser.Exception_when_errorContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.export_statement"/>.
 	/// </summary>
@@ -221,6 +231,26 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitIf_statement([NotNull] BigQueryParser.If_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.label"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterLabel([NotNull] BigQueryParser.LabelContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.label"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitLabel([NotNull] BigQueryParser.LabelContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.while"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterWhile([NotNull] BigQueryParser.WhileContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.while"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitWhile([NotNull] BigQueryParser.WhileContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// </summary>

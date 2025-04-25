@@ -37,17 +37,17 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.statements"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.parse"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterStatements([NotNull] BigQueryParser.StatementsContext context) { }
+	public virtual void EnterParse([NotNull] BigQueryParser.ParseContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.statements"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.parse"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitStatements([NotNull] BigQueryParser.StatementsContext context) { }
+	public virtual void ExitParse([NotNull] BigQueryParser.ParseContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.single_statement"/>.
 	/// <para>The default implementation does nothing.</para>
@@ -132,6 +132,18 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitProcedural_statement([NotNull] BigQueryParser.Procedural_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.exception_when_error"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterException_when_error([NotNull] BigQueryParser.Exception_when_errorContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.exception_when_error"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitException_when_error([NotNull] BigQueryParser.Exception_when_errorContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.export_statement"/>.
 	/// <para>The default implementation does nothing.</para>
@@ -264,6 +276,30 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitIf_statement([NotNull] BigQueryParser.If_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.label"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterLabel([NotNull] BigQueryParser.LabelContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.label"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitLabel([NotNull] BigQueryParser.LabelContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.while"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterWhile([NotNull] BigQueryParser.WhileContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.while"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitWhile([NotNull] BigQueryParser.WhileContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// <para>The default implementation does nothing.</para>
