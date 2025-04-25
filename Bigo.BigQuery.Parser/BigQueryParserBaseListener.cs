@@ -301,6 +301,42 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDcl_statement([NotNull] BigQueryParser.Dcl_statementContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.grant_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterGrant_statement([NotNull] BigQueryParser.Grant_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.grant_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitGrant_statement([NotNull] BigQueryParser.Grant_statementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.resource_type"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterResource_type([NotNull] BigQueryParser.Resource_typeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.resource_type"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitResource_type([NotNull] BigQueryParser.Resource_typeContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.revoke_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterRevoke_statement([NotNull] BigQueryParser.Revoke_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.revoke_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitRevoke_statement([NotNull] BigQueryParser.Revoke_statementContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.procedural_statement"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

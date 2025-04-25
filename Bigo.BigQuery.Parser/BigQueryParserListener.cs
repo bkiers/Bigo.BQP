@@ -252,6 +252,36 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitDcl_statement([NotNull] BigQueryParser.Dcl_statementContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.grant_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterGrant_statement([NotNull] BigQueryParser.Grant_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.grant_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitGrant_statement([NotNull] BigQueryParser.Grant_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.resource_type"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterResource_type([NotNull] BigQueryParser.Resource_typeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.resource_type"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitResource_type([NotNull] BigQueryParser.Resource_typeContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.revoke_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterRevoke_statement([NotNull] BigQueryParser.Revoke_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.revoke_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitRevoke_statement([NotNull] BigQueryParser.Revoke_statementContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.procedural_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

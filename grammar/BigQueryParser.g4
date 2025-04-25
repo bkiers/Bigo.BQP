@@ -205,8 +205,31 @@ merge_input
  ;
 
 dcl_statement
- : expression
- // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language
+ : grant_statement
+ | revoke_statement
+ ;
+
+// GRANT role_list
+//   ON resource_type resource_name
+//   TO user_list
+grant_statement
+ : GRANT expressions ON resource_type resource_name=path_expression
+   TO expressions
+ ;
+
+resource_type
+ : SCHEMA
+ | TABLE
+ | VIEW
+ | EXTERNAL TABLE
+ ;
+
+// REVOKE role_list
+//   ON resource_type resource_name
+//   FROM user_list
+revoke_statement
+ : REVOKE expressions ON resource_type resource_name=path_expression
+   FROM expressions
  ;
 
 procedural_statement
@@ -1777,7 +1800,7 @@ identifier
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
  | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE | EXCEPTION | ERROR | CALL
  | ELSEIF | LOOP | WHILE | DO | REPEAT | UNTIL | BREAK | LEAVE | CONTINUE | ITERATE | RETURN | TRANSACTION | COMMIT
- | ROLLBACK | MESSAGE | RAISE | INSERT | VALUES | DELETE | TRUNCATE | UPDATE | MATCHED | TARGET | SOURCE
+ | ROLLBACK | MESSAGE | RAISE | INSERT | VALUES | DELETE | TRUNCATE | UPDATE | MATCHED | TARGET | SOURCE | REVOKE
  ;
 
 // as_alias:

@@ -165,6 +165,24 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitDcl_statement([NotNull] BigQueryParser.Dcl_statementContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.grant_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitGrant_statement([NotNull] BigQueryParser.Grant_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.resource_type"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitResource_type([NotNull] BigQueryParser.Resource_typeContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.revoke_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitRevoke_statement([NotNull] BigQueryParser.Revoke_statementContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.procedural_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
