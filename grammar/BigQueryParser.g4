@@ -760,7 +760,7 @@ create_procedure
    ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? identifier '(' procedure_arguments? ')'
    ( OPTIONS '(' option_parameters ')' )?
    BEGIN
-   ';'* statement ( ';'+ statement )* ';'*
+   statement_list
    END
  ;
 
@@ -1136,7 +1136,7 @@ drop_search_index
 
 // DROP VECTOR INDEX [ IF EXISTS ] index_name ON table_name
 drop_vector_index
- : DROP SEARCH INDEX ( IF EXISTS )? index_name=path_expression ON table_name=path_expression
+ : DROP VECTOR INDEX ( IF EXISTS )? index_name=path_expression ON table_name=path_expression
  ;
 
 // view_column_name_list
@@ -1546,7 +1546,7 @@ pivot_operator
 unpivot_operator
  : UNPIVOT ( INCLUDE NULLS | EXCLUDE NULLS )? '('
      ( single_column_unpivot | multi_column_unpivot )
-   ')' unpivot_alias=as_alias
+   ')' unpivot_alias=as_alias?
  ;
 
 // single_column_unpivot:
