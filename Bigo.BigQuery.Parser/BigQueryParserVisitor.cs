@@ -1185,24 +1185,6 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitCoalesce([NotNull] BigQueryParser.CoalesceContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.if_"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIf_([NotNull] BigQueryParser.If_Context context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.ifnull"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIfnull([NotNull] BigQueryParser.IfnullContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.nullif"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitNullif([NotNull] BigQueryParser.NullifContext context);
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.expressions_as_alias"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

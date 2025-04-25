@@ -2341,42 +2341,6 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitCoalesce([NotNull] BigQueryParser.CoalesceContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.if_"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterIf_([NotNull] BigQueryParser.If_Context context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.if_"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitIf_([NotNull] BigQueryParser.If_Context context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.ifnull"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterIfnull([NotNull] BigQueryParser.IfnullContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.ifnull"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitIfnull([NotNull] BigQueryParser.IfnullContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.nullif"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterNullif([NotNull] BigQueryParser.NullifContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.nullif"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitNullif([NotNull] BigQueryParser.NullifContext context) { }
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.expressions_as_alias"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

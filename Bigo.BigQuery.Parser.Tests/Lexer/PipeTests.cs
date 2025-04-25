@@ -3,13 +3,12 @@ using Xunit;
 
 namespace Bigo.BigQuery.Parser.Tests.Lexer;
 
-public class AndTests : BaseLexerTest
+public class PipeTests : BaseLexerTest
 {
     [Theory]
-    [InlineData("AND")]
-    [InlineData("and")]
+    [InlineData("|>")]
     public void Test(string input)
     {
-        SingleToken(input, BigQueryLexer.AND);
+        SingleToken(input, BigQueryLexer.PIPE);
     }
 }

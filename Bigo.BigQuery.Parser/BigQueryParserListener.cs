@@ -1952,36 +1952,6 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitCoalesce([NotNull] BigQueryParser.CoalesceContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.if_"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterIf_([NotNull] BigQueryParser.If_Context context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.if_"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitIf_([NotNull] BigQueryParser.If_Context context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.ifnull"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterIfnull([NotNull] BigQueryParser.IfnullContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.ifnull"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitIfnull([NotNull] BigQueryParser.IfnullContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.nullif"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterNullif([NotNull] BigQueryParser.NullifContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.nullif"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitNullif([NotNull] BigQueryParser.NullifContext context);
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.expressions_as_alias"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

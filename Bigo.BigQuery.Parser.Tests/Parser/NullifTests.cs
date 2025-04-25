@@ -10,8 +10,8 @@ public class NullifTests : BaseParserTest
     // [InlineData("")]
     // [InlineData("")]
     // [InlineData("")]
-    public void Test(string input)
-    {
-        ParseAllTokens(input, parser => parser.nullif());
-    }
+    // public void Test(string input)
+    // {
+    //     ParseAllTokens(input, parser => parser.nullif());
+    // }
 }

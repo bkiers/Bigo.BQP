@@ -4,12 +4,9 @@ namespace Bigo.BigQuery.Parser.Tests.Parser;
 
 public class AsAliasTests : BaseParserTest
 {
-    // [Theory]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
+    [Theory]
+    [InlineData("alias")]
+    [InlineData("AS alias")]
     public void Test(string input)
     {
         ParseAllTokens(input, parser => parser.as_alias());

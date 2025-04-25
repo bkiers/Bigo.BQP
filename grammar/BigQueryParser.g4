@@ -1,3 +1,5 @@
+// TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create
+// TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/pipe-syntax
 parser grammar BigQueryParser;
 
 options {
@@ -1647,9 +1649,6 @@ expression
  | literal
  | case_expression
  | coalesce
- | if_
- | ifnull
- | nullif
  ;
 
 expressions
@@ -1669,21 +1668,6 @@ case_expression
 // COALESCE(expr[, ...])
 coalesce
  : COALESCE '(' expressions ')'
- ;
-
-// IF(expr, true_result, else_result)
-if_
- : IF '(' expr=expression ',' true_result=expression ',' else_result=expression  ')'
- ;
-
-// IFNULL(expr, null_result)
-ifnull
- : IFNULL '(' expression ',' null_result=expression ')'
- ;
-
-// NULLIF(expr, expr_to_match)
-nullif
- : NULLIF '(' expression ',' expr_to_match=expression ')'
  ;
 
 expressions_as_alias

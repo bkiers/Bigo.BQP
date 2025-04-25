@@ -5,14 +5,10 @@ namespace Bigo.BigQuery.Parser.Tests.Lexer;
 
 public class SpacesTests : BaseLexerTest
 {
-    // [Theory]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
+    [Theory]
+    [InlineData("  \r \t \n  ")]
     public void Test(string input)
     {
-        SingleToken(input, BigQueryLexer.SPACES);
+        SingleToken(input, BigQueryLexer.SPACES, Antlr4.Runtime.Lexer.Hidden);
     }
 }

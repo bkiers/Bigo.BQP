@@ -5,12 +5,8 @@ namespace Bigo.BigQuery.Parser.Tests.Lexer;
 
 public class LtTests : BaseLexerTest
 {
-    // [Theory]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
-    // [InlineData("")]
+    [Theory]
+    [InlineData("<")]
     public void Test(string input)
     {
         SingleToken(input, BigQueryLexer.LT);

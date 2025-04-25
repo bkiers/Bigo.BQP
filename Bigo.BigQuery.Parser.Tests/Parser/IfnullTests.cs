@@ -10,8 +10,8 @@ public class IfnullTests : BaseParserTest
     // [InlineData("")]
     // [InlineData("")]
     // [InlineData("")]
-    public void Test(string input)
-    {
-        ParseAllTokens(input, parser => parser.ifnull());
-    }
+    // public void Test(string input)
+    // {
+    //     ParseAllTokens(input, parser => parser.ifnull());
+    // }
 }

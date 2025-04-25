@@ -10,8 +10,8 @@ public class IfTests : BaseParserTest
     // [InlineData("")]
     // [InlineData("")]
     // [InlineData("")]
-    public void Test(string input)
-    {
-        ParseAllTokens(input, parser => parser.if_());
-    }
+    // public void Test(string input)
+    // {
+    //     ParseAllTokens(input, parser => parser.if_());
+    // }
 }

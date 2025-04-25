@@ -2,6 +2,7 @@ lexer grammar BigQueryLexer;
 
 options { caseInsensitive=true; }
 
+PIPE : '|>';
 COL : ':';
 BNOT : '~';
 CONCAT : '||';
