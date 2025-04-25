@@ -2820,6 +2820,42 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitField_name_types([NotNull] BigQueryParser.Field_name_typesContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.export_model"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExport_model([NotNull] BigQueryParser.Export_modelContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.export_model"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExport_model([NotNull] BigQueryParser.Export_modelContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_model"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterAlter_model([NotNull] BigQueryParser.Alter_modelContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.alter_model"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitAlter_model([NotNull] BigQueryParser.Alter_modelContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.drop_model"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDrop_model([NotNull] BigQueryParser.Drop_modelContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.drop_model"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDrop_model([NotNull] BigQueryParser.Drop_modelContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

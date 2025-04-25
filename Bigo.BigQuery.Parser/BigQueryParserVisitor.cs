@@ -1424,5 +1424,23 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitField_name_types([NotNull] BigQueryParser.Field_name_typesContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.export_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExport_model([NotNull] BigQueryParser.Export_modelContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.alter_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitAlter_model([NotNull] BigQueryParser.Alter_modelContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.drop_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDrop_model([NotNull] BigQueryParser.Drop_modelContext context);
 }
 } // namespace BigO.BigQuery.Parser

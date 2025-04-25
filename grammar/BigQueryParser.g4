@@ -28,6 +28,9 @@ statement
  | load_statement
  | assert_statement
  | create_model
+ | export_model
+ | alter_model
+ | drop_model
  ;
 
 // Data definition language (DDL) statements
@@ -1928,7 +1931,16 @@ field_name_types
  ;
 
 // EXPORT MODEL MODEL_NAME [OPTIONS ( URI = STRING_VALUE )]
+export_model
+ : EXPORT MODEL model_name=expression ( OPTIONS '(' option_parameters ')' )?
+ ;
 
 // ALTER MODEL [IF EXISTS] <model_name> SET OPTIONS (key=value, ...)
+alter_model
+ : ALTER MODEL ( IF EXISTS )? model_name=expression SET OPTIONS '(' option_parameters ')'
+ ;
 
-// {DROP MODEL | DROP MODEL IF EXISTS} model_name
+// DROP MODEL [IF EXISTS] model_name
+drop_model
+ : DROP MODEL ( IF EXISTS )? model_name=expression
+ ;

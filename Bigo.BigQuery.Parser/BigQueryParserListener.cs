@@ -2351,5 +2351,35 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitField_name_types([NotNull] BigQueryParser.Field_name_typesContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.export_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExport_model([NotNull] BigQueryParser.Export_modelContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.export_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExport_model([NotNull] BigQueryParser.Export_modelContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.alter_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAlter_model([NotNull] BigQueryParser.Alter_modelContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.alter_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAlter_model([NotNull] BigQueryParser.Alter_modelContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.drop_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDrop_model([NotNull] BigQueryParser.Drop_modelContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.drop_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDrop_model([NotNull] BigQueryParser.Drop_modelContext context);
 }
 } // namespace BigO.BigQuery.Parser
