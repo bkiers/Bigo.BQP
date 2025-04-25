@@ -33,17 +33,17 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.parse"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.statements_eof"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitParse([NotNull] BigQueryParser.ParseContext context);
+	Result VisitStatements_eof([NotNull] BigQueryParser.Statements_eofContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.single_statement"/>.
+	/// Visit a parse tree produced by <see cref="BigQueryParser.statement_eof"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitSingle_statement([NotNull] BigQueryParser.Single_statementContext context);
+	Result VisitStatement_eof([NotNull] BigQueryParser.Statement_eofContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.statement_list"/>.
 	/// </summary>
@@ -86,6 +86,78 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitDelete_statement([NotNull] BigQueryParser.Delete_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.truncate_table_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitTruncate_table_statement([NotNull] BigQueryParser.Truncate_table_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.update_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitUpdate_statement([NotNull] BigQueryParser.Update_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.update_item"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitUpdate_item([NotNull] BigQueryParser.Update_itemContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.update_items"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitUpdate_items([NotNull] BigQueryParser.Update_itemsContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.merge_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMerge_statement([NotNull] BigQueryParser.Merge_statementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.when_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitWhen_clause([NotNull] BigQueryParser.When_clauseContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.matched_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMatched_clause([NotNull] BigQueryParser.Matched_clauseContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.not_matched_by_target_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitNot_matched_by_target_clause([NotNull] BigQueryParser.Not_matched_by_target_clauseContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.not_matched_by_source_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitNot_matched_by_source_clause([NotNull] BigQueryParser.Not_matched_by_source_clauseContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.merge_update_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMerge_update_clause([NotNull] BigQueryParser.Merge_update_clauseContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.merge_insert_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMerge_insert_clause([NotNull] BigQueryParser.Merge_insert_clauseContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.merge_input"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMerge_input([NotNull] BigQueryParser.Merge_inputContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
 	/// </summary>

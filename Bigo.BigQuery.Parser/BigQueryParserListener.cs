@@ -32,25 +32,25 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IBigQueryParserListener : IParseTreeListener {
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.parse"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.statements_eof"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterParse([NotNull] BigQueryParser.ParseContext context);
+	void EnterStatements_eof([NotNull] BigQueryParser.Statements_eofContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.parse"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.statements_eof"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitParse([NotNull] BigQueryParser.ParseContext context);
+	void ExitStatements_eof([NotNull] BigQueryParser.Statements_eofContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.single_statement"/>.
+	/// Enter a parse tree produced by <see cref="BigQueryParser.statement_eof"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSingle_statement([NotNull] BigQueryParser.Single_statementContext context);
+	void EnterStatement_eof([NotNull] BigQueryParser.Statement_eofContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.single_statement"/>.
+	/// Exit a parse tree produced by <see cref="BigQueryParser.statement_eof"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSingle_statement([NotNull] BigQueryParser.Single_statementContext context);
+	void ExitStatement_eof([NotNull] BigQueryParser.Statement_eofContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.statement_list"/>.
 	/// </summary>
@@ -121,6 +121,126 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDelete_statement([NotNull] BigQueryParser.Delete_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.truncate_table_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTruncate_table_statement([NotNull] BigQueryParser.Truncate_table_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.truncate_table_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTruncate_table_statement([NotNull] BigQueryParser.Truncate_table_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.update_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterUpdate_statement([NotNull] BigQueryParser.Update_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.update_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitUpdate_statement([NotNull] BigQueryParser.Update_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.update_item"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterUpdate_item([NotNull] BigQueryParser.Update_itemContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.update_item"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitUpdate_item([NotNull] BigQueryParser.Update_itemContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.update_items"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterUpdate_items([NotNull] BigQueryParser.Update_itemsContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.update_items"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitUpdate_items([NotNull] BigQueryParser.Update_itemsContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.merge_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMerge_statement([NotNull] BigQueryParser.Merge_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.merge_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMerge_statement([NotNull] BigQueryParser.Merge_statementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.when_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterWhen_clause([NotNull] BigQueryParser.When_clauseContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.when_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitWhen_clause([NotNull] BigQueryParser.When_clauseContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.matched_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMatched_clause([NotNull] BigQueryParser.Matched_clauseContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.matched_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMatched_clause([NotNull] BigQueryParser.Matched_clauseContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.not_matched_by_target_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterNot_matched_by_target_clause([NotNull] BigQueryParser.Not_matched_by_target_clauseContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.not_matched_by_target_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitNot_matched_by_target_clause([NotNull] BigQueryParser.Not_matched_by_target_clauseContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.not_matched_by_source_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterNot_matched_by_source_clause([NotNull] BigQueryParser.Not_matched_by_source_clauseContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.not_matched_by_source_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitNot_matched_by_source_clause([NotNull] BigQueryParser.Not_matched_by_source_clauseContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.merge_update_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMerge_update_clause([NotNull] BigQueryParser.Merge_update_clauseContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.merge_update_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMerge_update_clause([NotNull] BigQueryParser.Merge_update_clauseContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.merge_insert_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMerge_insert_clause([NotNull] BigQueryParser.Merge_insert_clauseContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.merge_insert_clause"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMerge_insert_clause([NotNull] BigQueryParser.Merge_insert_clauseContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.merge_input"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMerge_input([NotNull] BigQueryParser.Merge_inputContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.merge_input"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMerge_input([NotNull] BigQueryParser.Merge_inputContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
 	/// </summary>

@@ -4,12 +4,12 @@ options {
   tokenVocab=BigQueryLexer;
 }
 
-parse
+statements_eof
  : statement_list EOF
  ;
 
-single_statement
- : ';'* statement ';'*
+statement_eof
+ : ';'* statement ';'* EOF
  ;
 
 statement_list
@@ -102,7 +102,9 @@ ddl_statement
 dml_statement
  : insert_statement
  | delete_statement
- // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax
+ | truncate_table_statement
+ | update_statement
+ | merge_statement
  ;
 
 // INSERT [INTO] target_name
@@ -126,6 +128,80 @@ input
 // DELETE [FROM] target_name [alias] WHERE condition
 delete_statement
  : DELETE FROM? target_name=path_expression alias=identifier? WHERE expression
+ ;
+
+// TRUNCATE TABLE [[project_name.]dataset_name.]table_name
+truncate_table_statement
+ : TRUNCATE TABLE ( ( project_name=identifier '.' )? dataset_name=identifier '.' )? table_name=identifier
+ ;
+
+// UPDATE target_name [[AS] alias]
+// SET update_item[, ...]
+// [FROM from_clause]
+// WHERE condition
+update_statement
+ : UPDATE target_name=path_expression as_alias?
+   SET update_items
+   ( FROM from_clause )?
+   WHERE expression
+ ;
+
+// update_item ::= column_name = expression
+update_item
+ : path_expression '=' expression
+ ;
+
+update_items
+ : update_item ( ',' update_item )*
+ ;
+
+// MERGE [INTO] target_name [[AS] alias]
+// USING source_name
+// ON merge_condition
+// { when_clause } +
+merge_statement
+ : MERGE INTO? target_name=path_expression as_alias?
+   USING source_name=expression
+   ON merge_condition=expression
+   when_clause+
+ ;
+
+// when_clause ::= matched_clause | not_matched_by_target_clause | not_matched_by_source_clause
+when_clause
+ : matched_clause
+ | not_matched_by_target_clause
+ | not_matched_by_source_clause
+ ;
+
+// matched_clause ::= WHEN MATCHED [ AND search_condition ] THEN { merge_update_clause | merge_delete_clause }
+matched_clause
+ : WHEN MATCHED ( AND expression )? THEN ( merge_update_clause | DELETE )
+ ;
+
+// not_matched_by_target_clause ::= WHEN NOT MATCHED [BY TARGET] [ AND search_condition ] THEN merge_insert_clause
+not_matched_by_target_clause
+ : WHEN NOT MATCHED ( BY TARGET )? ( AND expression )? THEN merge_insert_clause
+ ;
+
+// not_matched_by_source_clause ::= WHEN NOT MATCHED BY SOURCE [ AND search_condition ] THEN { merge_update_clause | merge_delete_clause }
+not_matched_by_source_clause
+ : WHEN NOT MATCHED BY SOURCE ( AND expression )? THEN ( merge_update_clause | DELETE )
+ ;
+
+// merge_update_clause ::= UPDATE SET update_item [, update_item]*
+merge_update_clause
+ : UPDATE SET update_items
+ ;
+
+// merge_insert_clause ::= INSERT [(column_1 [, ..., column_n ])] merge_input
+merge_insert_clause
+ : INSERT ( '(' columns ')' )? merge_input
+ ;
+
+// merge_input ::= VALUES (expr_1 [, ..., expr_n ]) | ROW
+merge_input
+ : VALUES '(' expressions ')'
+ | ROW
  ;
 
 dcl_statement
@@ -1701,7 +1777,7 @@ identifier
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
  | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE | EXCEPTION | ERROR | CALL
  | ELSEIF | LOOP | WHILE | DO | REPEAT | UNTIL | BREAK | LEAVE | CONTINUE | ITERATE | RETURN | TRANSACTION | COMMIT
- | ROLLBACK | MESSAGE | RAISE | INSERT | VALUES | DELETE
+ | ROLLBACK | MESSAGE | RAISE | INSERT | VALUES | DELETE | TRUNCATE | UPDATE | MATCHED | TARGET | SOURCE
  ;
 
 // as_alias:
@@ -1734,6 +1810,7 @@ function_expression
                         | AS data_type format_clause? ( AT TIMEZONE expression )?
                         | ( IGNORE | RESPECT ) NULLS
                         )?
+ | query_expression
  ;
 
 optional_clauses
