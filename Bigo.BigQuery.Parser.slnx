@@ -1,0 +1,6 @@
+﻿<Solution>
+  <Folder Name="/tests/">
+    <Project Path="Bigo.BigQuery.Parser.Tests\Bigo.BigQuery.Parser.Tests.csproj" Type="Classic C#" />
+  </Folder>
+  <Project Path="Bigo.BigQuery.Parser\Bigo.BigQuery.Parser.csproj" Type="Classic C#" />
+</Solution>
