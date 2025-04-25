@@ -111,9 +111,11 @@ procedural_statement
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language
  ;
 
+// EXPORT DATA [WITH CONNECTION connection_name]
+// OPTIONS (export_option_list) AS  query_statement
 export_statement
- : expression
- // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/export-statements
+ : EXPORT DATA ( WITH CONNECTION connection_name=path_expression )?
+   ( OPTIONS '(' option_parameters ')' ) AS query_statement
  ;
 
 // LOAD DATA {OVERWRITE|INTO}  [{TEMP|TEMPORARY} TABLE]
@@ -1526,7 +1528,7 @@ identifier
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
- | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES
+ | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT
  ;
 
 // as_alias:
