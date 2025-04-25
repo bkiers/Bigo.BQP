@@ -99,6 +99,18 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitDeclare([NotNull] BigQueryParser.DeclareContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.set"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitSet([NotNull] BigQueryParser.SetContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.execute_immediate"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExecute_immediate([NotNull] BigQueryParser.Execute_immediateContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.query_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -1178,12 +1190,6 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitFormat_clause([NotNull] BigQueryParser.Format_clauseContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="BigQueryParser.set"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitSet([NotNull] BigQueryParser.SetContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.path_expressions"/>.
 	/// </summary>

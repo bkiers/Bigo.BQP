@@ -142,6 +142,26 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitDeclare([NotNull] BigQueryParser.DeclareContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.set"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterSet([NotNull] BigQueryParser.SetContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.set"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitSet([NotNull] BigQueryParser.SetContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.execute_immediate"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExecute_immediate([NotNull] BigQueryParser.Execute_immediateContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.execute_immediate"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExecute_immediate([NotNull] BigQueryParser.Execute_immediateContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.query_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -1941,16 +1961,6 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitFormat_clause([NotNull] BigQueryParser.Format_clauseContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.set"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterSet([NotNull] BigQueryParser.SetContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.set"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitSet([NotNull] BigQueryParser.SetContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.path_expressions"/>.
 	/// </summary>

@@ -169,6 +169,30 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDeclare([NotNull] BigQueryParser.DeclareContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.set"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterSet([NotNull] BigQueryParser.SetContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.set"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitSet([NotNull] BigQueryParser.SetContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.execute_immediate"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExecute_immediate([NotNull] BigQueryParser.Execute_immediateContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.execute_immediate"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExecute_immediate([NotNull] BigQueryParser.Execute_immediateContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.query_statement"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -2328,18 +2352,6 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitFormat_clause([NotNull] BigQueryParser.Format_clauseContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="BigQueryParser.set"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterSet([NotNull] BigQueryParser.SetContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="BigQueryParser.set"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitSet([NotNull] BigQueryParser.SetContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.path_expressions"/>.
 	/// <para>The default implementation does nothing.</para>

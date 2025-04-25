@@ -108,6 +108,7 @@ dcl_statement
 procedural_statement
  : declare
  | set
+ | execute_immediate
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language
  ;
 
@@ -151,6 +152,19 @@ assert_statement
 // DECLARE variable_name[, ...] [variable_type] [DEFAULT expression]
 declare
  : DECLARE path_expressions data_type? ( DEFAULT expression )?
+ ;
+
+// SET variable_name = expression;
+//
+// SET (variable_name[, ...]) = (expression[, ...]);
+set
+ : SET variable_name=path_expression '=' expression
+ | SET '(' path_expressions ')' '=' '(' expressions ')'
+ ;
+
+// EXECUTE IMMEDIATE sql_expression [ INTO variable[, ...] ] [ USING identifier[, ...] ]
+execute_immediate
+ : EXECUTE IMMEDIATE sql_expression=expression ( INTO expressions )? ( USING expressions )?
  ;
 
 query_statement
@@ -1528,7 +1542,7 @@ identifier
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
- | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE
+ | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE
  ;
 
 // as_alias:
@@ -1600,14 +1614,6 @@ over_clause
 //   format_string_expression
 format_clause
  : FORMAT format_string_expression=expression
- ;
-
-// SET variable_name = expression;
-//
-// SET (variable_name[, ...]) = (expression[, ...]);
-set
- : SET variable_name=path_expression '=' expression
- | SET '(' path_expressions ')' '=' '(' expressions ')'
  ;
 
 path_expressions
