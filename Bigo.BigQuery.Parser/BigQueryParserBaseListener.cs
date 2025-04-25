@@ -133,6 +133,18 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitInput([NotNull] BigQueryParser.InputContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.delete_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDelete_statement([NotNull] BigQueryParser.Delete_statementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.delete_statement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDelete_statement([NotNull] BigQueryParser.Delete_statementContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

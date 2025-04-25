@@ -112,6 +112,16 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitInput([NotNull] BigQueryParser.InputContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.delete_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDelete_statement([NotNull] BigQueryParser.Delete_statementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.delete_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDelete_statement([NotNull] BigQueryParser.Delete_statementContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

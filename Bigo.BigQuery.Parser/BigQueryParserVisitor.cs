@@ -81,6 +81,12 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitInput([NotNull] BigQueryParser.InputContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.delete_statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDelete_statement([NotNull] BigQueryParser.Delete_statementContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.dcl_statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

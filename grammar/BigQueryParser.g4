@@ -101,6 +101,7 @@ ddl_statement
 
 dml_statement
  : insert_statement
+ | delete_statement
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax
  ;
 
@@ -120,6 +121,11 @@ insert_statement
 input
  : VALUES '(' expressions ')' ( ','  '(' expressions ')' )*
  | query_expression
+ ;
+
+// DELETE [FROM] target_name [alias] WHERE condition
+delete_statement
+ : DELETE FROM? target_name=path_expression alias=identifier? WHERE expression
  ;
 
 dcl_statement
@@ -1695,7 +1701,7 @@ identifier
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
  | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE | EXCEPTION | ERROR | CALL
  | ELSEIF | LOOP | WHILE | DO | REPEAT | UNTIL | BREAK | LEAVE | CONTINUE | ITERATE | RETURN | TRANSACTION | COMMIT
- | ROLLBACK | MESSAGE | RAISE | INSERT | VALUES
+ | ROLLBACK | MESSAGE | RAISE | INSERT | VALUES | DELETE
  ;
 
 // as_alias:
