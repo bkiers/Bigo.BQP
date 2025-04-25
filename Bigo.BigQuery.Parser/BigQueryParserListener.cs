@@ -2331,5 +2331,25 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDatetime_part([NotNull] BigQueryParser.Datetime_partContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.create_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCreate_model([NotNull] BigQueryParser.Create_modelContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.create_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCreate_model([NotNull] BigQueryParser.Create_modelContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.field_name_types"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterField_name_types([NotNull] BigQueryParser.Field_name_typesContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.field_name_types"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitField_name_types([NotNull] BigQueryParser.Field_name_typesContext context);
 }
 } // namespace BigO.BigQuery.Parser

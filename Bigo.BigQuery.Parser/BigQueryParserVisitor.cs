@@ -1412,5 +1412,17 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitDatetime_part([NotNull] BigQueryParser.Datetime_partContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.create_model"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitCreate_model([NotNull] BigQueryParser.Create_modelContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.field_name_types"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitField_name_types([NotNull] BigQueryParser.Field_name_typesContext context);
 }
 } // namespace BigO.BigQuery.Parser

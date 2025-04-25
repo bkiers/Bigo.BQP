@@ -173,6 +173,7 @@ public class FunctionCallTests : BaseParserTest
     [InlineData("SUM(DISTINCT x)")]
     [InlineData("SUM(x) OVER (PARTITION BY MOD(x, 3))")]
     [InlineData("SUM(DISTINCT x) OVER (PARTITION BY MOD(x, 3))")]
+    [InlineData("ML.STANDARD_SCALER(f) OVER()")]
     public void Test(string input)
     {
         ParseAllTokens(input, parser => parser.function_call());

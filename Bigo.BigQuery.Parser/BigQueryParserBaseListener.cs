@@ -2796,6 +2796,30 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDatetime_part([NotNull] BigQueryParser.Datetime_partContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.create_model"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterCreate_model([NotNull] BigQueryParser.Create_modelContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.create_model"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitCreate_model([NotNull] BigQueryParser.Create_modelContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.field_name_types"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterField_name_types([NotNull] BigQueryParser.Field_name_typesContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.field_name_types"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitField_name_types([NotNull] BigQueryParser.Field_name_typesContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

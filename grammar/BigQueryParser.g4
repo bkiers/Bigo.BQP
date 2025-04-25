@@ -27,6 +27,7 @@ statement
  | export_statement
  | load_statement
  | assert_statement
+ | create_model
  ;
 
 // Data definition language (DDL) statements
@@ -1470,6 +1471,7 @@ from_item
  | field_path=path_expression
  | unnest_operator
  | cte_name=path_expression as_alias?
+ | function_call
  ;
 
 // unnest_operator:
@@ -1769,7 +1771,6 @@ byte_literal
  | RAW_BYTES_LITERAL
  ;
 
-// TODO include all non-reserved
 identifier
  : UNQUOTED_IDENTIFIER
  | QUOTED_IDENTIFIER
@@ -1785,6 +1786,7 @@ identifier
  | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE | EXCEPTION | ERROR | CALL
  | ELSEIF | LOOP | WHILE | DO | REPEAT | UNTIL | BREAK | LEAVE | CONTINUE | ITERATE | RETURN | TRANSACTION | COMMIT
  | ROLLBACK | MESSAGE | RAISE | INSERT | VALUES | DELETE | TRUNCATE | UPDATE | MATCHED | TARGET | SOURCE | REVOKE
+ | MODEL | TRANSFORM | INPUT | OUTPUT
  ;
 
 // as_alias:
@@ -1897,3 +1899,36 @@ datetime_part
  | MILLISECOND
  | MICROSECOND
  ;
+
+// {CREATE MODEL | CREATE MODEL IF NOT EXISTS | CREATE OR REPLACE MODEL}
+// model_name
+// [TRANSFORM (select_list)]
+// [INPUT (field_name field_type) OUTPUT (field_name field_type)]
+// [REMOTE WITH CONNECTION {`connection_name` | DEFAULT}]
+// [OPTIONS(model_option_list)]
+// [AS { query_statement
+//     | (
+//         training_data AS (query_statement),
+//         custom_holiday AS (holiday_statement)
+//       )
+//     }
+// ]
+create_model
+ : CREATE ( MODEL | MODEL IF NOT EXISTS | OR REPLACE MODEL )
+   model_name=path_expression
+   ( TRANSFORM '(' select_list ')' )?
+   ( INPUT field_name_types OUTPUT field_name_types )?
+   ( REMOTE WITH CONNECTION expression )?
+   ( OPTIONS '(' option_parameters ')' )?
+   ( AS ( query_statement | '(' identifier AS '(' query_statement ')' ')' ) )?
+ ;
+
+field_name_types
+ : '(' identifier data_type ( ',' identifier data_type )* ')'
+ ;
+
+// EXPORT MODEL MODEL_NAME [OPTIONS ( URI = STRING_VALUE )]
+
+// ALTER MODEL [IF EXISTS] <model_name> SET OPTIONS (key=value, ...)
+
+// {DROP MODEL | DROP MODEL IF EXISTS} model_name
