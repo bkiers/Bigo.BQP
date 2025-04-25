@@ -159,11 +159,53 @@ public interface IBigQueryParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitLabel([NotNull] BigQueryParser.LabelContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.loop"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitLoop([NotNull] BigQueryParser.LoopContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.repeat"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitRepeat([NotNull] BigQueryParser.RepeatContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.while"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitWhile([NotNull] BigQueryParser.WhileContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.for_in"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFor_in([NotNull] BigQueryParser.For_inContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.begin_transaction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBegin_transaction([NotNull] BigQueryParser.Begin_transactionContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.commit_transaction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitCommit_transaction([NotNull] BigQueryParser.Commit_transactionContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.rollback_transaction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitRollback_transaction([NotNull] BigQueryParser.Rollback_transactionContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BigQueryParser.raise"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitRaise([NotNull] BigQueryParser.RaiseContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// </summary>

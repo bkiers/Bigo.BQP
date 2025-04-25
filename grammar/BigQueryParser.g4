@@ -111,7 +111,8 @@ dcl_statement
 
 procedural_statement
  : exception_when_error
- | ( BREAK | LEAVE | CONTINUE | ITERATE ) identifier
+ | ( BREAK | LEAVE | CONTINUE | ITERATE ) identifier?
+ | RETURN
  | declare
  | set
  | execute_immediate
@@ -122,7 +123,13 @@ procedural_statement
  | if_statement
  | label
  | while
- // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language
+ | loop
+ | repeat
+ | for_in
+ | begin_transaction
+ | commit_transaction
+ | rollback_transaction
+ | raise
  | call
  ;
 
@@ -248,6 +255,21 @@ label
    )
  ;
 
+// LOOP
+//   sql_statement_list
+// END LOOP
+loop
+ :
+ ;
+
+// REPEAT
+//   sql_statement_list
+//   UNTIL boolean_condition
+// END REPEAT
+repeat
+ :
+ ;
+
 // WHILE boolean_expression DO
 //   sql_statement_list
 // END WHILE
@@ -255,7 +277,35 @@ while
  : WHILE expression DO statement_list END WHILE
  ;
 
-// CALL procedure_name (procedure_argument[, …])
+// FOR loop_variable_name IN (table_expression)
+// DO
+//   sql_expression_list
+// END FOR
+for_in
+ : FOR identifier IN expression DO statement_list END FOR
+ ;
+
+// BEGIN [TRANSACTION]
+begin_transaction
+ : BEGIN TRANSACTION?
+ ;
+
+// COMMIT [TRANSACTION]
+commit_transaction
+ : COMMIT TRANSACTION?
+ ;
+
+// ROLLBACK [TRANSACTION]
+rollback_transaction
+ : ROLLBACK TRANSACTION?
+ ;
+
+// RAISE [USING MESSAGE = message]
+raise
+ : RAISE ( USING MESSAGE '=' string_literal )?
+ ;
+
+// CALL procedure_name (procedure_argument[, ...])
 call
  : CALL procedure_name=path_expression '(' expressions? ')'
  ;
@@ -1625,7 +1675,8 @@ identifier
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
  | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE | EXCEPTION | ERROR | CALL
- | ELSEIF | LOOP | WHILE | DO | REPEAT | UNTIL | BREAK | LEAVE | CONTINUE | ITERATE
+ | ELSEIF | LOOP | WHILE | DO | REPEAT | UNTIL | BREAK | LEAVE | CONTINUE | ITERATE | RETURN | TRANSACTION | COMMIT
+ | ROLLBACK | MESSAGE | RAISE
  ;
 
 // as_alias:

@@ -242,6 +242,26 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitLabel([NotNull] BigQueryParser.LabelContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.loop"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterLoop([NotNull] BigQueryParser.LoopContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.loop"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitLoop([NotNull] BigQueryParser.LoopContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.repeat"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterRepeat([NotNull] BigQueryParser.RepeatContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.repeat"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitRepeat([NotNull] BigQueryParser.RepeatContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.while"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -251,6 +271,56 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitWhile([NotNull] BigQueryParser.WhileContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.for_in"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFor_in([NotNull] BigQueryParser.For_inContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.for_in"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFor_in([NotNull] BigQueryParser.For_inContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.begin_transaction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBegin_transaction([NotNull] BigQueryParser.Begin_transactionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.begin_transaction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBegin_transaction([NotNull] BigQueryParser.Begin_transactionContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.commit_transaction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCommit_transaction([NotNull] BigQueryParser.Commit_transactionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.commit_transaction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCommit_transaction([NotNull] BigQueryParser.Commit_transactionContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.rollback_transaction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterRollback_transaction([NotNull] BigQueryParser.Rollback_transactionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.rollback_transaction"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitRollback_transaction([NotNull] BigQueryParser.Rollback_transactionContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.raise"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterRaise([NotNull] BigQueryParser.RaiseContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.raise"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitRaise([NotNull] BigQueryParser.RaiseContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.call"/>.
 	/// </summary>
