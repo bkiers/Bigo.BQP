@@ -5,11 +5,15 @@ options {
 }
 
 statements
- : ';'* statement ( ';'+ statement )* ';'* EOF
+ : statement_list EOF
  ;
 
 single_statement
  : ';'* statement ';'* EOF
+ ;
+
+statement_list
+ : ';'* statement ( ';'+ statement )* ';'*
  ;
 
 statement
@@ -109,7 +113,10 @@ procedural_statement
  : declare
  | set
  | execute_immediate
+ | begin_end
+ | begin_exception_end
  // TODO: https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language
+ | call
  ;
 
 // EXPORT DATA [WITH CONNECTION connection_name]
@@ -165,6 +172,27 @@ set
 // EXECUTE IMMEDIATE sql_expression [ INTO variable[, ...] ] [ USING identifier[, ...] ]
 execute_immediate
  : EXECUTE IMMEDIATE sql_expression=expression ( INTO expressions )? ( USING expressions )?
+ ;
+
+// BEGIN
+//   sql_statement_list
+// END
+begin_end
+ : BEGIN statement_list END
+ ;
+
+// BEGIN
+//   sql_statement_list
+// EXCEPTION WHEN ERROR THEN
+//   sql_statement_list
+// END
+begin_exception_end
+ : BEGIN statement_list EXCEPTION WHEN ERROR THEN statement_list END
+ ;
+
+// CALL procedure_name (procedure_argument[, …])
+call
+ : CALL procedure_name=path_expression '(' expressions? ')'
  ;
 
 query_statement
@@ -1542,7 +1570,7 @@ identifier
  | OUT | INOUT | BEGIN | SECURITY | INVOKER | COALESCE | NULLIF | IFNULL | GRANT | FILTER | COLUMN | STORING | ALTER
  | ADD | RENAME | DATA | ORGANIZATION | PROJECT | BI_CAPACITY | ANY_VALUE | MAX | MIN | ARRAY_CONCAT_AGG | BIT_AND
  | BIT_OR | BIT_XOR | COUNT | COUNTIF | LOGICAL_AND | LOGICAL_OR | MAX_BY | MIN_BY | STRING_AGG | SUM | TIMEZONE | TIME
- | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE
+ | ASSERT | LOAD | OVERWRITE | PARTITIONS | FILES | EXPORT | DECLARE | EXECUTE | IMMEDIATE | EXCEPTION | ERROR | CALL
  ;
 
 // as_alias:

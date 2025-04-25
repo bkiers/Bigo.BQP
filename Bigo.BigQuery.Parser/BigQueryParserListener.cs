@@ -52,6 +52,16 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitSingle_statement([NotNull] BigQueryParser.Single_statementContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.statement_list"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterStatement_list([NotNull] BigQueryParser.Statement_listContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.statement_list"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitStatement_list([NotNull] BigQueryParser.Statement_listContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -161,6 +171,36 @@ public interface IBigQueryParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitExecute_immediate([NotNull] BigQueryParser.Execute_immediateContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.begin_end"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBegin_end([NotNull] BigQueryParser.Begin_endContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.begin_end"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBegin_end([NotNull] BigQueryParser.Begin_endContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.begin_exception_end"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBegin_exception_end([NotNull] BigQueryParser.Begin_exception_endContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.begin_exception_end"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBegin_exception_end([NotNull] BigQueryParser.Begin_exception_endContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.call"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCall([NotNull] BigQueryParser.CallContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.call"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCall([NotNull] BigQueryParser.CallContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.query_statement"/>.
 	/// </summary>

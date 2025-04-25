@@ -7,6 +7,7 @@ public class UnexpectedTests : BaseLexerTest
 {
     [Theory]
     [InlineData("@")]
+    [InlineData("%")]
     [InlineData("😀")]
     public void Test(string input)
     {

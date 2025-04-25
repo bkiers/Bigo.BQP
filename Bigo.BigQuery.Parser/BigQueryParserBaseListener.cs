@@ -61,6 +61,18 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitSingle_statement([NotNull] BigQueryParser.Single_statementContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.statement_list"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterStatement_list([NotNull] BigQueryParser.Statement_listContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.statement_list"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitStatement_list([NotNull] BigQueryParser.Statement_listContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.statement"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -192,6 +204,42 @@ public partial class BigQueryParserBaseListener : IBigQueryParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitExecute_immediate([NotNull] BigQueryParser.Execute_immediateContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.begin_end"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterBegin_end([NotNull] BigQueryParser.Begin_endContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.begin_end"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitBegin_end([NotNull] BigQueryParser.Begin_endContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.begin_exception_end"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterBegin_exception_end([NotNull] BigQueryParser.Begin_exception_endContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.begin_exception_end"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitBegin_exception_end([NotNull] BigQueryParser.Begin_exception_endContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="BigQueryParser.call"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterCall([NotNull] BigQueryParser.CallContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="BigQueryParser.call"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitCall([NotNull] BigQueryParser.CallContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="BigQueryParser.query_statement"/>.
 	/// <para>The default implementation does nothing.</para>
