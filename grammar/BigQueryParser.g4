@@ -1449,8 +1449,9 @@ from_clause
 
 // from_item:
 //   {
-//     table_name [ as_alias ] [ FOR SYSTEM_TIME AS OF timestamp_expression ]
-//     | { join_operation | ( join_operation ) }
+//       table_name [ as_alias ] [ FOR SYSTEM_TIME AS OF timestamp_expression ]
+//     | join_operation
+//     | ( join_operation )
 //     | ( query_expression ) [ as_alias ]
 //     | field_path
 //     | unnest_operator
@@ -1464,11 +1465,11 @@ from_clause
 //   from_item cross_join_operator from_item
 //
 // condition_join_operation:
-//   from_item condition_join_operator from_item join_condition
+//   from_item condition_join_operator from_item [join_condition]
 from_item
  : table_name=identifier as_alias? ( FOR SYSTEM_TIME AS OF timestamp_expression=expression )?
  | from_item cross_join_operator from_item
- | from_item condition_join_operator from_item join_condition
+ | from_item condition_join_operator from_item join_condition?
  | '(' ( from_item cross_join_operator from_item | from_item condition_join_operator from_item join_condition) ')'
  | '(' query_expression ')' as_alias?
  | field_path=path_expression
@@ -1606,7 +1607,7 @@ option_parameter
 // select_list:
 //   { select_all | select_expression } [, ...]
 select_list
- : select_list_item ( ',' select_list_item )*
+ : select_list_item ( ',' select_list_item )* ','?
  ;
 
 // select_expression:
@@ -1653,6 +1654,7 @@ expression
  | window_function
  | literal
  | case_expression
+ | case_
  | coalesce
  ;
 
