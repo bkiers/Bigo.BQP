@@ -11,7 +11,7 @@ Let's say you'd like to collect all GROUP BY expressions from a query. This
 can be done by writing a custom "listener" that collects some information 
 when the parser enters the `group_by_specification` rule:
 
-```antlrv4
+```text
 group_by_specification
  : groupable_items=expressions
  | ALL
@@ -49,7 +49,7 @@ class GroupedByListener : BigQueryParserBaseListener
 
 Given the following query:
 
-```bigquery
+```sql
 SELECT
   cs.customer_id,
   cs.customer_name,
