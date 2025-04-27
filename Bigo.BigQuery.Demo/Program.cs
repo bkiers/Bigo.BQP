@@ -3,6 +3,7 @@ using Antlr4.Runtime.Tree;
 using BigO.BigQuery.Parser;
 
 const string query = """
+                     -- A sample query to demonstrate how to use ANTLR4 to parse BigQuery SQL
                      SELECT
                        cs.customer_id,
                        cs.customer_name,
